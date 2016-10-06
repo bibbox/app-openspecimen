@@ -1,0 +1,36 @@
+version: '2'
+services:
+
+  openspecimen-web-DEV:
+    image: bibbox/openspecimen
+    container_name: openspecimen-web-DEV
+    links:
+      - openspecimendb:openspecimendb
+    ports:
+      - "8098:8080"
+    depends_on:
+      - openspecimendb
+      - openspecimen-data-DEV
+    volumes_from: 
+      - openspecimen-data-DEV
+
+  openspecimendb:
+    image: mysql
+    container_name: openspecimendb
+    user: root
+    environment:
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes_from: 
+      - openspecimen-data-DEV
+    depends_on:
+      - openspecimen-data-DEV
+
+  openspecimen-data-DEV:
+    image: bibbox/openspecimen-data
+    container_name: openspecimen-data-DEV
+    volumes:
+      - /Users/mue/dockerdata/openspecimen/var/lib/mysql:/var/lib/mysql
+      - /Users/mue/dockerdata/openspecimen/etc/mysql/conf.d/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf

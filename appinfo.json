@@ -1,0 +1,9 @@
+{
+		"name": "OpenSpecimen v3.3 Release",
+		"short name": "OpenSpecimen",
+		"version": "v3.3",
+		"description": "V3.3 release further improves the flexibility of OpenSpecimen with options to configure screens per study, enhanced bulk operations, monthly reports and new user roles.",
+		"catalogue url": "http://biobankapps.com/software/view?id=26",
+		"application url": "https://openspecimen.atlassian.net/wiki/display/CAT/V3.3+Release+notes",
+		"tags": ["Sample Management", "BIMS"]
+}

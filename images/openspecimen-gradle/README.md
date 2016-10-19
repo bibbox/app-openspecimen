@@ -1,4 +1,4 @@
-![alt text](http://bibbox.org/image/layout_set_logo?img_id=99523&t=1466419185262 "Logo BiBBoX")
+![alt text](http://bibbox.org/image/layout_set_logo?img_id=99523&t=1466419185262 "Logo BIBBOX")
 # OpenSpecimen Build Container
 
 Linux environment to build `OpenSpecimen` from the source code. This is part of a `docker-compose file` for runing OpenSpecimen. You can find more infomation about the system ([here](https://github.com/bibbox/app-openspecimen))

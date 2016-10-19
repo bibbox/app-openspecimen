@@ -1,23 +1,33 @@
 version: '2'
 services:
 
-  openspecimen-web-DEV:
-    image: bibbox/openspecimen
-    container_name: openspecimen-web-DEV
-    links:
-      - openspecimendb:openspecimendb
-    ports:
-      - "8098:8080"
-    depends_on:
-      - openspecimendb
-      - openspecimen-data-DEV
+  openspecimen-gradle-DEV:
+    image: bibbox/openspecimen-gradle
+    container_name: openspecimen-gradle-DEV
+    environment:
+      - INSTANCE=DEV
     volumes_from: 
       - openspecimen-data-DEV
 
-  openspecimendb:
+  openspecimen-web-DEV:
+    image: bibbox/openspecimen-application
+    container_name: openspecimen-web-DEV
+    links:
+      - openspecimen-db-DEV:openspecimen-db-DEV
+    ports:
+      - "8098:8080"
+    environment:
+      - INSTANCE=DEV
+    depends_on:
+      - openspecimen-db-DEV
+      - openspecimen-data-DEV
+      - openspecimen-gradle-DEV
+    volumes_from: 
+      - openspecimen-data-DEV
+
+  openspecimen-db-DEV:
     image: mysql
-    container_name: openspecimendb
-    user: root
+    container_name: openspecimen-db-DEV
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
@@ -29,8 +39,8 @@ services:
       - openspecimen-data-DEV
 
   openspecimen-data-DEV:
-    image: bibbox/openspecimen-data
+    image: busybox
     container_name: openspecimen-data-DEV
     volumes:
-      - /Users/mue/dockerdata/openspecimen/var/lib/mysql:/var/lib/mysql
-      - /Users/mue/dockerdata/openspecimen/etc/mysql/conf.d/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - /Users/reihsr/Documents/BiBBox/docker/app-openspecimen/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - /Users/reihsr/Documents/BiBBox/docker_test_run/openspecimen/dist:/opt/dist

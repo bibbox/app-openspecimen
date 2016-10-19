@@ -5,5 +5,13 @@
 		"description": "V3.3 release further improves the flexibility of OpenSpecimen with options to configure screens per study, enhanced bulk operations, monthly reports and new user roles.",
 		"catalogue_url": "http://biobankapps.com/software/view?id=26",
 		"application_url": "https://openspecimen.atlassian.net/wiki/display/CAT/V3.3+Release+notes",
-		"tags": ["Sample Management", "BIMS"]
+		"tags": ["Sample Management", "BIMS"],
+        "install": [
+            {"field":"OpenSpecimen login","required":"true","type":"string","hint":"admin","tooltip":"Username to login into OpenSpecimen."},
+            {"field":"OpenSpecimen Institute","required":"fasle","type":"string","hint":"BIBBOX Demo Biobank","tooltip":"Institute name in OpenSpecimen for the first user."},
+            {"field":"databaseuser","required":"false","type":"string","hint":"openspecimen","tooltip":"Username for the database, leave empty for default (default:openspecimen)"},
+            {"field":"databasepassword","required":"false","type":"string","hint":"****","tooltip":"Password for the database, leave empty for random password."},
+            {"field":"Tomcat Manger User","required":"false","type":"string","hint":"admin","tooltip":"Username for the Tomcat Manager Console, leave empty for default (default:admin)"},
+            {"field":"Tomcat Manger Password","required":"false","type":"string","hint":"****","tooltip":"Password for the Tomcat Manager Console, leave empty for random password."}
+        ]
 }

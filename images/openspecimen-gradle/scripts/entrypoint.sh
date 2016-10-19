@@ -5,6 +5,7 @@ file="/opt/dist/openspecimen.war"
 
 if [[ ! -f "$file" ]]; then
   . /.profile
+  . defaultvar.sh
   cd /opt
   wget -O openspec.zip "$RELEASEURL"
   unzip openspec.zip

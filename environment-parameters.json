@@ -5,7 +5,6 @@
       "type":"text",
       "default_value":"admin",
       "description":"Username to login into OpenSpecimen.",
-      "visible": "YES",
       "min_length": "1",
       "max_length": "128"
    },
@@ -15,7 +14,7 @@
       "type":"text",
       "default_value":"BIBBOX Demo Biobank",
       "description":"Institute name in OpenSpecimen for the first user.",
-      "visible": "YES",
+      "hidden": "NO",
       "min_length": "1",
       "max_length": "128"
    },
@@ -25,7 +24,6 @@
       "type":"text",
       "default_value":"openspecimen",
       "description":"Username for the database, leave empty for default (default:openspecimen)",
-      "visible": "YES",
       "min_length": "1",
       "max_length": "128"
    },
@@ -35,7 +33,6 @@
       "type":"PASSWORD",
       "default_value":"",
       "description":"Password for the database, leave empty for random password.",
-      "visible": "YES",
       "min_length": "1",
       "max_length": "128"
    },
@@ -45,7 +42,6 @@
       "type":"text",
       "default_value":"admin",
       "description":"Username for the Tomcat Manager Console, leave empty for default (default:admin)",
-      "visible": "YES",
       "min_length": "1",
       "max_length": "128"
    },
@@ -55,7 +51,6 @@
       "type":"PASSWORD",
       "default_value":"",
       "description":"Password for the Tomcat Manager Console, leave empty for random password.",
-      "visible": "YES",
       "min_length": "1",
       "max_length": "128"
    }

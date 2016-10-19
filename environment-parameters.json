@@ -14,7 +14,6 @@
       "type":"text",
       "default_value":"BIBBOX Demo Biobank",
       "description":"Institute name in OpenSpecimen for the first user.",
-      "hidden": "NO",
       "min_length": "1",
       "max_length": "128"
    },

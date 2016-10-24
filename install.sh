@@ -1,8 +1,9 @@
 #!/bin/bash
-echo "Starting OpenSpecimen Containers"
+echo "Installing OpenSpecimen BIBBOX Application"
+echo "installing from $PWD"
 
-folder="/Users/mue/dockerdata/openspecimen"
-instance="DEV"
+folder="/opt/bibbox/application-instance/app-openspecimen-instance"
+instance="instance"
 
 usage()
 {
@@ -12,7 +13,7 @@ usage()
     echo "Creates Instance of the compose docker file"
     echo ""
     echo "OPTIONS:"
-    echo "      -i, --instance                  Instance Name"
+    echo "      -i, --instance                  Instance ID"
     echo ""
     echo "Example:"
     echo "       sudo ./start.sh -i instance1"
@@ -20,16 +21,12 @@ usage()
 
 version()
 {
-  echo "Version: 1.0"
+  echo "Version: 1.1"
   echo "BIBBOX Version: 1.0"
-  echo "Build: 2016-08-12"
+  echo "Build: 2016-10-24"
 }
 
-clean_up() {
-
-	# Perform program exit housekeeping
-	# Optionally accepts an exit status
-	
+clean_up() {	
 	exit $1
 }
 
@@ -39,32 +36,69 @@ error_exit()
 	clean_up 1
 }
 
-checkConfig()
+updateConfigurationFile()
 {
-
-    echo "check config"
-    if [[ ! -d "$folder" ]]; then
-        mkdir -p "$folder/var/lib/mysql"
-        mkdir -p "$folder/etc/mysql/conf.d"
+    echo "Creat and Update config files"
+    if [[ ! -f "$folder/config/openspecimen.cnf" ]]; then
+        cp config/openspecimen.cnf "$folder/config/openspecimen.cnf"
+    fi
+    if  [[ ! -f "$folder/docker-compose.yml" ]]; then
+        cp docker-compose.yml "$folder/docker-compose.yml"
+    fi
     
-        cp config/openspecimen.cnf "$folder/etc/mysql/conf.d/openspecimen.cnf"
+    sed -i "s/§§INSTANCE/${instance}/g" "$folder/docker-compose.yml"
+    sed -i "s/§§FOLDER/${folder}/g" "$folder/docker-compose.yml"
+
+
+§§MYSQL_ROOT_PASSWORD
+§§MYSQL_DATABASE
+§§MYSQL_USER
+§§MYSQL_PASSWORD
+§§TOMCAT_MANAGER_USER
+§§TOMCAT_MANAGER_PASSWORD
+§§INSTITUTE_NAME
+§§EMAIL_ADDRESS
+§§FIRST_NAME
+§§LAST_NAME
+§§LOGIN_NAME
+§§ADDRESS
+      
+}
+
+createFolders()
+{
+    if [[ ! -d "$folder" ]]; then
+        echo "Creating Installation Folder"
+        mkdir -p "$folder/config"
+        mkdir -p "$folder/data/mysql"
+        mkdir -p "$folder/data/dist"
+        mkdir -p "$folder/data/os-data"
+        mkdir -p "$folder/data/os-plugins"
     fi
 }
 
 checkParameters() 
 {
+    echo "Setup parameters:"
     if [[ "$instance" = "instance" ]]; then
-        echo "No seperate instance name set!"
+        echo "No instance id set! Using default." 
+    else
+        echo "Instance: $instance" 
+    fi
+    if [[ "$folder" = "/opt/bibbox/application-instance/app-openspecimen-instance" ]]; then
+        echo "No installation folder set! Using default."
+    else
+        echo "Installation Folder: $folder" 
     fi
 }
-
-
-checkConfig
 
 while [ "$1" != "" ]; do
     case $1 in
         -i | --instance )       shift
                                 instance=$1
+                                ;;
+        -f | --folder )         shift
+                                folder=$1
                                 ;;
         -h | --help )           usage
                                 clean_up
@@ -78,19 +112,6 @@ while [ "$1" != "" ]; do
     shift
 done
 
-
-# TODO
-# Add possibility to set instance name
-# Copy compose file to instanc folder
-# add config file from container to seperate config file
-
-# Run in DB
-# insert into catissue_institution (identifier, name, activity_status) values (default, '<institution name>', 'Active')
-# insert into os_departments (identifier, name, institute_id) values (default, '<department name>', '<ID of institute created in above step>')
-# insert into catissue_user
-#  (identifier, email_address, first_name, last_name, login_name, activity_status, institute_id,
-#   password, domain_name, is_admin, address)
-#values
-#  (default, '<email address>', '<first name>', '<last name>', '<login name>', 'Active', '<institute_id created above>',
-#   '$2a$10$GOH1.KmElP0ZusLYS6l12ejO.xAIzDUFpIm7LVz9xAcrObyvd3gLC', 'openspecimen', 1, '<address>');
-# password will be Login!@3
+checkParameters
+createFolders
+updateConfigurationFile

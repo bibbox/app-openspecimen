@@ -1,46 +1,67 @@
 version: '2'
 services:
 
-  openspecimen-gradle-DEV:
+  openspecimen-gradle-§§INSTANCE:
     image: bibbox/openspecimen-gradle
-    container_name: openspecimen-gradle-DEV
+    container_name: openspecimen-gradle-§§INSTANCE
     environment:
-      - INSTANCE=DEV
+      - INSTANCE=§§INSTANCE
+      - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=§§MYSQL_DATABASE
+      - MYSQL_USER=§§MYSQL_USER
+      - MYSQL_PASSWORD=§§MYSQL_PASSWORD
+    environment:
+      - INSTANCE=§§INSTANCE
     volumes_from: 
-      - openspecimen-data-DEV
+      - openspecimen-data-§§INSTANCE
 
-  openspecimen-web-DEV:
+  openspecimen-web-§§INSTANCE:
     image: bibbox/openspecimen-application
-    container_name: openspecimen-web-DEV
+    container_name: openspecimen-web-§§INSTANCE
     links:
-      - openspecimen-db-DEV:openspecimen-db-DEV
+      - openspecimen-db-§§INSTANCE:openspecimen-db-§§INSTANCE
     ports:
-      - "8098:8080"
+      - "§§PORT:8080"
     environment:
-      - INSTANCE=DEV
+      - INSTANCE=§§INSTANCE
+      - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=§§MYSQL_DATABASE
+      - MYSQL_USER=§§MYSQL_USER
+      - MYSQL_PASSWORD=§§MYSQL_PASSWORD
+      - TOMCAT_MANAGER_USER=§§TOMCAT_MANAGER_USER
+      - TOMCAT_MANAGER_PASSWORD=§§TOMCAT_MANAGER_PASSWORD
+      - INSTITUTE_NAME=§§INSTITUTE_NAME
+      - EMAIL_ADDRESS=§§EMAIL_ADDRESS
+      - FIRST_NAME=§§FIRST_NAME
+      - LAST_NAME=§§LAST_NAME
+      - LOGIN_NAME=§§LOGIN_NAME
+      - ADDRESS=§§ADDRESS
     depends_on:
-      - openspecimen-db-DEV
-      - openspecimen-data-DEV
-      - openspecimen-gradle-DEV
+      - openspecimen-db-§§INSTANCE
+      - openspecimen-data-§§INSTANCE
+      - openspecimen-gradle-§§INSTANCE
     volumes_from: 
-      - openspecimen-data-DEV
+      - openspecimen-data-§§INSTANCE
 
-  openspecimen-db-DEV:
+  openspecimen-db-§§INSTANCE:
     image: mysql
-    container_name: openspecimen-db-DEV
+    container_name: openspecimen-db-§§INSTANCE
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
     volumes_from: 
-      - openspecimen-data-DEV
+      - openspecimen-data-§§INSTANCE
     depends_on:
-      - openspecimen-data-DEV
+      - openspecimen-data-§§INSTANCE
 
-  openspecimen-data-DEV:
+  openspecimen-data-§§INSTANCE:
     image: busybox
-    container_name: openspecimen-data-DEV
+    container_name: openspecimen-data-§§INSTANCE
     volumes:
-      - /Users/reihsr/Documents/BiBBox/docker/app-openspecimen/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
-      - /Users/reihsr/Documents/BiBBox/docker_test_run/openspecimen/dist:/opt/dist
+      - §§FOLDER/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - §§FOLDER/data/mysql:/var/lib/mysql
+      - §§FOLDER/data/dist:/opt/dist
+      - §§FOLDER/data/os-data:/opt/openspecimen/os-data
+      - §§FOLDER/data/os-plugins:/opt/openspecimen/os-plugins

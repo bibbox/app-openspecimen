@@ -52,5 +52,50 @@
       "description":"Password for the Tomcat Manager Console, leave empty for random password.",
       "min_length": "1",
       "max_length": "128"
+   },
+   {
+      "id":"LAST_NAME",
+      "display_name":"Last Name",
+      "type":"text",
+      "default_value":"",
+      "description":"Your last name.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"FIRST_NAME",
+      "display_name":"First Name",
+      "type":"text",
+      "default_value":"",
+      "description":"Your first name.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"EMAIL_ADDRESS",
+      "display_name":"E-Mail Address",
+      "type":"text",
+      "default_value":"",
+      "description":"Your email address for OpenSpecimen.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"ADDRESS",
+      "display_name":"Address",
+      "type":"text",
+      "default_value":"",
+      "description":"Your address.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"MYSQL_ROOT_PASSWORD",
+      "display_name":"MySql root password",
+      "type":"PASSWORD",
+      "default_value":"",
+      "description":"Root password for the database, leave empty for random password.",
+      "min_length": "1",
+      "max_length": "128"
    }
 ]

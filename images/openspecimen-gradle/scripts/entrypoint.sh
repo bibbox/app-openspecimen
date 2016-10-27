@@ -14,7 +14,7 @@ if [[ ! -f "$file" ]]; then
   
   sed -i "s#<app_container_home>#${APP_HOME}#g" /opt/openspecimen/build.properties
   sed -i "s#<app_data_dir>#${APP_DATA_DIR}#g" /opt/openspecimen/build.properties
-  sed -i "s/database_host = localhost/database_host = ${DATABASE_HOST}${INSTANCE}/g" /opt/openspecimen/build.properties
+  sed -i "s/database_host = localhost/database_host = ${DATABASE_HOST}/g" /opt/openspecimen/build.properties
   sed -i "s/database_name = osdb/database_name = ${MYSQL_DATABASE}/g" /opt/openspecimen/build.properties
   sed -i "s/database_username = root/database_username = ${MYSQL_USER}/g" /opt/openspecimen/build.properties
   sed -i "s/database_password = root/database_password = ${MYSQL_PASSWORD}/g" /opt/openspecimen/build.properties

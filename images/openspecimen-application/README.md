@@ -19,10 +19,7 @@ default "mysql"
 ### `DATABASE_DRIVER`
 default "com.mysql.jdbc.Driver"
 ### `DATABASE_HOST`
-default "openspecimen-db-"
-### `INSTANCE`
-The instance and `DATABASE_HOST` form the host url for the database connection. This is part of hor the instalation process is handeld for the bibbox system.
-default ""
+default "openspecimen-db"
 ### `DATABASE_PORT`
 default "database_port = 3306"
 ### `TOMCAT_MANAGER_USER`

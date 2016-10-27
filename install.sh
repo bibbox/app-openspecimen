@@ -181,40 +181,40 @@ while [ "$1" != "" ]; do
         -p | --port )           shift
                                 port=$1
                                 ;;
-        --mysqlrootpw )         shift
+        --MYSQL_ROOT_PASSWORD ) shift
                                 MYSQL_ROOT_PASSWORD=$1
                                 ;;
         --mysqldatabase )       shift
                                 MYSQL_DATABASE=$1
                                 ;;
-        --mysqluser )           shift
+        --MYSQL_USER )          shift
                                 MYSQL_USER=$1
                                 ;;
-        --mysqlpassword )       shift
+        --MYSQL_PASSWORD )      shift
                                 MYSQL_PASSWORD=$1
                                 ;;
-        --tomcatmanager )       shift
+        --TOMCAT_MANAGER_USER ) shift
                                 TOMCAT_MANAGER_USER=$1
                                 ;;
-        --tomcatpassword )      shift
+        --TOMCAT_MANAGER_PASSWORD ) shift
                                 TOMCAT_MANAGER_PASSWORD=$1
                                 ;;
-        --institutename )       shift
+        --INSTITUTE_NAME )      shift
                                 INSTITUTE_NAME=$1
                                 ;;
-        --email )               shift
+        --EMAIL_ADDRESS )       shift
                                 EMAIL_ADDRESS=$1
                                 ;;
-        --firstname )           shift
+        --FIRST_NAME )          shift
                                 FIRST_NAME=$1
                                 ;;
-        --lastname )            shift
+        --LAST_NAME )           shift
                                 LAST_NAME=$1
                                 ;;
-        --login )               shift
+        --LOGIN_NAME )          shift
                                 LOGIN_NAME=$1
                                 ;;
-        --address )             shift
+        --ADDRESS )             shift
                                 ADDRESS=$1
                                 ;;
         -h | --help )           usage

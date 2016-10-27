@@ -45,10 +45,7 @@ default "fresh"
 ### `DATABASE_TYPE`
 default "mysql"
 ### `DATABASE_HOST`
-default "openspecimen-db-"
-### `INSTANCE`
-The instance and `DATABASE_HOST` form the host url for the database connection. This is part of hor the instalation process is handeld for the bibbox system.
-default ""
+default "openspecimen-db"
 ### `DATABASE_PORT`
 default "database_port = 3306"
 ### `MYSQL_DATABASE`

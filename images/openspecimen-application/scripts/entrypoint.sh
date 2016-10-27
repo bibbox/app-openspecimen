@@ -4,7 +4,7 @@ echo "Starting OpenSpecimen Application!"
 . defaultvar.sh
 
 echo "Wait for DB server to be ready"
-/opt/scripts/waitforit.sh "${DATABASE_HOST}${INSTANCE}:${DATABASE_PORT}"
+/opt/scripts/waitforit.sh "${DATABASE_HOST}:${DATABASE_PORT}"
 
 file=/opt/dist/deployed.done
 if [ ! -f $file ] ; then
@@ -22,7 +22,7 @@ EOF
   cp /opt/dist/openspecimen.war $CATALINA_HOME/webapps/ROOT.war
   sed -i "s#§§username#${MYSQL_USER}#g" /opt/tomcat/conf/context.xml
   sed -i "s#§§password#${MYSQL_PASSWORD}#g" /opt/tomcat/conf/context.xml
-  sed -i "s#§§host#${DATABASE_HOST}${INSTANCE}#g" /opt/tomcat/conf/context.xml
+  sed -i "s#§§host#${DATABASE_HOST}#g" /opt/tomcat/conf/context.xml
   sed -i "s#§§database#${MYSQL_DATABASE}#g" /opt/tomcat/conf/context.xml
   sed -i "s#§§useddatabasetype#${USED_DATABASE_TYPE}#g" /opt/tomcat/conf/context.xml
   sed -i "s#§§port#${DATABASE_PORT}#g" /opt/tomcat/conf/context.xml
@@ -34,7 +34,7 @@ EOF
   sed -i "s#§§databasedriver#${DATABASE_DRIVER}#g" /opt/scripts/sqlproperties.properties
   sed -i "s#§§username#${MYSQL_USER}#g" /opt/scripts/sqlproperties.properties
   sed -i "s#§§password#${MYSQL_PASSWORD}#g" /opt/scripts/sqlproperties.properties
-  sed -i "s#§§host#${DATABASE_HOST}${INSTANCE}#g" /opt/scripts/sqlproperties.properties
+  sed -i "s#§§host#${DATABASE_HOST}#g" /opt/scripts/sqlproperties.properties
   sed -i "s#§§database#${MYSQL_DATABASE}#g" /opt/scripts/sqlproperties.properties
   sed -i "s#§§port#${DATABASE_PORT}#g" /opt/scripts/sqlproperties.properties
   sed -i "s#§§useddatabasetype#${USED_DATABASE_TYPE}#g" /opt/scripts/sqlproperties.properties

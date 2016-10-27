@@ -1,11 +1,11 @@
 version: '2'
 services:
 
-  openspecimen-gradle-§§INSTANCE:
+  §§INSTANCE-openspecimen-gradle:
     image: bibbox/openspecimen-gradle
-    container_name: openspecimen-gradle-§§INSTANCE
+    container_name: §§INSTANCE-openspecimen-gradle
     environment:
-      - INSTANCE=§§INSTANCE
+      - DATABASE_HOST=§§INSTANCE-openspecimen-db
       - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=§§MYSQL_DATABASE
       - MYSQL_USER=§§MYSQL_USER
@@ -15,15 +15,15 @@ services:
     volumes_from: 
       - openspecimen-data-§§INSTANCE
 
-  openspecimen-web-§§INSTANCE:
+  §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen-application
-    container_name: openspecimen-web-§§INSTANCE
+    container_name: §§INSTANCE-openspecimen-web
     links:
-      - openspecimen-db-§§INSTANCE:openspecimen-db-§§INSTANCE
+      - §§INSTANCE-openspecimen-db:§§INSTANCE-openspecimen-db
     ports:
       - "§§PORT:8080"
     environment:
-      - INSTANCE=§§INSTANCE
+      - DATABASE_HOST=§§INSTANCE-openspecimen-db
       - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
       - MYSQL_DATABASE=§§MYSQL_DATABASE
       - MYSQL_USER=§§MYSQL_USER
@@ -37,28 +37,28 @@ services:
       - LOGIN_NAME=§§LOGIN_NAME
       - ADDRESS=§§ADDRESS
     depends_on:
-      - openspecimen-db-§§INSTANCE
-      - openspecimen-data-§§INSTANCE
-      - openspecimen-gradle-§§INSTANCE
+      - §§INSTANCE-openspecimen-db
+      - §§INSTANCE-openspecimen-data
+      - §§INSTANCE-openspecimen-gradle
     volumes_from: 
-      - openspecimen-data-§§INSTANCE
+      - §§INSTANCE-openspecimen-data
 
-  openspecimen-db-§§INSTANCE:
+  §§INSTANCE-openspecimen-db:
     image: mysql
-    container_name: openspecimen-db-§§INSTANCE
+    container_name: §§INSTANCE-openspecimen-db
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
     volumes_from: 
-      - openspecimen-data-§§INSTANCE
+      - §§INSTANCE-openspecimen-data
     depends_on:
-      - openspecimen-data-§§INSTANCE
+      - §§INSTANCE-openspecimen-data
 
-  openspecimen-data-§§INSTANCE:
+  §§INSTANCE-openspecimen-data:
     image: busybox
-    container_name: openspecimen-data-§§INSTANCE
+    container_name: §§INSTANCE-openspecimen-data
     volumes:
       - §§FOLDER/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
       - §§FOLDER/data/mysql:/var/lib/mysql

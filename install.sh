@@ -5,6 +5,8 @@ echo "installing from $PWD"
 folder="/opt/bibbox/application-instance/app-openspecimen-instance"
 instance="instance"
 
+PROGNAME=$(basename $0)
+
 usage()
 {
     echo "Usage:    start [OPTIONS]"
@@ -33,7 +35,7 @@ clean_up() {
 
 error_exit()
 {
-	echo "${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
+	echo "ERROR in ${PROGNAME}: ${1:-"Unknown Error"}" 1>&2
 	clean_up 1
 }
 

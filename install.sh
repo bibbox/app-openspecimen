@@ -50,7 +50,7 @@ updateConfigurationFile()
     fi
     
     sed -i "s/§§INSTANCE/${instance}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§FOLDER/${folder}/g" "$folder/docker-compose.yml"
+    sed -i "s#§§FOLDER#${folder}#g" "$folder/docker-compose.yml"
     sed -i "s/§§PORT/${port}/g" "$folder/docker-compose.yml"
     sed -i "s/§§MYSQL_ROOT_PASSWORD/${MYSQL_ROOT_PASSWORD}/g" "$folder/docker-compose.yml"
     sed -i "s/§§MYSQL_DATABASE/${MYSQL_DATABASE}/g" "$folder/docker-compose.yml"

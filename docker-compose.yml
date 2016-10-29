@@ -13,7 +13,7 @@ services:
     environment:
       - DATABASE_HOST=§§INSTANCE-openspecimen-db
     volumes_from: 
-      - openspecimen-data-§§INSTANCE
+      - §§INSTANCE-openspecimen-data
 
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen

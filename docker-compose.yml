@@ -16,7 +16,7 @@ services:
       - openspecimen-data-§§INSTANCE
 
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen-application
+    image: bibbox/openspecimen
     container_name: §§INSTANCE-openspecimen-web
     links:
       - §§INSTANCE-openspecimen-db:§§INSTANCE-openspecimen-db

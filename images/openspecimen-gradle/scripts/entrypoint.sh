@@ -9,7 +9,7 @@ if [[ ! -f "$file" ]]; then
   cd /opt
   wget -O openspec.zip "$RELEASEURL"
   unzip openspec.zip
-  mv openspecimen* openspecimen_build
+  mv openspecimen-* openspecimen_build
   cd /opt/openspecimen_build/
   
   sed -i "s#<app_container_home>#${APP_HOME}#g" /opt/openspecimen_build/build.properties

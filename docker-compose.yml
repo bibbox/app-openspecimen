@@ -47,10 +47,10 @@ services:
     image: mysql
     container_name: §§INSTANCE-openspecimen-db
     environment:
-      - MYSQL_ROOT_PASSWORD=openspecimen
-      - MYSQL_DATABASE=openspecimen
-      - MYSQL_USER=openspecimen
-      - MYSQL_PASSWORD=openspecimen
+      - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=§§MYSQL_DATABASE
+      - MYSQL_USER=§§MYSQL_USER
+      - MYSQL_PASSWORD=§§MYSQL_PASSWORD
     volumes_from: 
       - §§INSTANCE-openspecimen-data
     depends_on:

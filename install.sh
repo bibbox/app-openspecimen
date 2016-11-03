@@ -108,7 +108,8 @@ checkParameters()
     fi
     
     if [[ -z "$MYSQL_DATABASE" ]]; then
-        echo "Database not set"
+        echo "Database not set, setting default openspecimen"
+        $MYSQL_DATABASE="openspecimen"
     else
         echo "MYSQL_DATABASE: $MYSQL_DATABASE"
     fi

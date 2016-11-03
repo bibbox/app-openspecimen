@@ -68,11 +68,6 @@ linkfile()
   ln -s /etc/apache2/sites-available/005-$instance.conf /etc/apache2/sites-enabled/005-$instance.conf
 }
 
-restartApache()
-{
-  service apache2 reload
-}
-
 ip=127.0.0.1
 url=demo.bibbox.org
 
@@ -107,5 +102,4 @@ done
 
 createProxyfile
 linkfile
-restartApache
 clean_up

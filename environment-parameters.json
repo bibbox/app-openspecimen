@@ -1,14 +1,5 @@
 [
    {
-      "id":"LOGIN_NAME",
-      "display_name":"OpenSpecimen login",
-      "type":"text",
-      "default_value":"admin",
-      "description":"Username to login into OpenSpecimen.",
-      "min_length": "1",
-      "max_length": "128"
-   },
-   {
       "id":"INSTITUTE_NAME",
       "display_name":"OpenSpecimen Institute",
       "type":"text",

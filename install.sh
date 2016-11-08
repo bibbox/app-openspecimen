@@ -102,7 +102,7 @@ checkParameters()
     
     if [[ -z "$MYSQL_ROOT_PASSWORD" ]]; then
         echo "Mysql root passwort not set, creating random password."
-        MYSQL_ROOT_PASSWORD=$(LC_CTYPE=C tr -dc A-Za-z0-9_\!\@\$\%\^\&\*\(\)-+= < /dev/urandom | head -c 32 | xargs)
+        MYSQL_ROOT_PASSWORD=$(LC_CTYPE=C tr -dc A-Za-z0-9_\!\@\%\^\&\*\(\)-+= < /dev/urandom | head -c 32 | xargs)
     else
         echo "Mysql root passwort: ****"
     fi
@@ -122,7 +122,7 @@ checkParameters()
     
     if [[ -z "$MYSQL_PASSWORD" ]]; then
         echo "Mysql password not set, creating random password."
-        MYSQL_PASSWORD=$(LC_CTYPE=C tr -dc A-Za-z0-9_\!\@\$\%\^\&\*\(\)-+= < /dev/urandom | head -c 32 | xargs)
+        MYSQL_PASSWORD=$(LC_CTYPE=C tr -dc A-Za-z0-9_\!\@\%\^\&\*\(\)-+= < /dev/urandom | head -c 32 | xargs)
     else
         echo "MYSQL_PASSWORD: ****"
     fi
@@ -135,7 +135,7 @@ checkParameters()
     
     if [[ -z "$TOMCAT_MANAGER_PASSWORD" ]]; then
         echo "Tomcat manager password not set, creating random password."
-        TOMCAT_MANAGER_PASSWORD=$(LC_CTYPE=C tr -dc A-Za-z0-9_\!\@\$\%\^\&\*\(\)-+= < /dev/urandom | head -c 32 | xargs)
+        TOMCAT_MANAGER_PASSWORD=$(LC_CTYPE=C tr -dc A-Za-z0-9_\!\@\%\^\&\*\(\)-+= < /dev/urandom | head -c 32 | xargs)
     else
         echo "TOMCAT_MANAGER_PASSWORD: ****"
     fi  

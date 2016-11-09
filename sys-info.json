@@ -1,4 +1,4 @@
 {
-  runningcontainers:["§§INSTANCE-openspecimen-web", "§§INSTANCE-openspecimen-db"],
-  supportcontainers:["§§INSTANCE-openspecimen-gradle", "§§INSTANCE-openspecimen-data"]    
+  runningcontainers:["-openspecimen-web", "-openspecimen-db"],
+  supportcontainers:["-openspecimen-gradle", "-openspecimen-data"]    
 }

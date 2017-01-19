@@ -1,4 +1,4 @@
 ## OPEN SPECIMEN Installation Instructions 
 
 * start the application
-* initial user/password is: biboxadmin / Login!@3
+* initial user/password is: bibboxadmin / Login!@3

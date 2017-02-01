@@ -6,11 +6,11 @@
 * Start the application from BIBBOX application screen
 * Log into Open Specimen with user "bibboxadmin" and password "Login!@3"
 
-![Screenshot01](screen-01.png)
+![Screenshot01](screen-1.png)
 
 * After Open Specimen has finished its internal setup process, den Login screen can be accessed. (This can take several minutes)
 
-![Screenshot02](screen-02.png)
+![Screenshot02](screen-2.png)
 
 * After logging into the application, the user will have access to the Open Specimen dashboard and the application is ready to user
 * Don't forget to change the default access credentials!

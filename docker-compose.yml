@@ -6,24 +6,6 @@ networks:
 
 services:
 
-  §§INSTANCE-openspecimen-gradle:
-    image: bibbox/openspecimen-gradle
-    container_name: §§INSTANCE-openspecimen-gradle
-    restart: unless-stopped
-    networks:
-      - bibbox-default-network
-    environment:
-      - DATABASE_HOST=§§INSTANCE-openspecimen-db
-      - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE=§§MYSQL_DATABASE
-      - MYSQL_USER=§§MYSQL_USER
-      - MYSQL_PASSWORD=§§MYSQL_PASSWORD
-      - RELEASEURL=https://github.com/krishagni/openspecimen/archive/v3.4.1.zip
-    environment:
-      - DATABASE_HOST=§§INSTANCE-openspecimen-db
-    volumes_from: 
-      - §§INSTANCE-openspecimen-data
-
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen
     container_name: §§INSTANCE-openspecimen-web
@@ -51,7 +33,6 @@ services:
     depends_on:
       - §§INSTANCE-openspecimen-db
       - §§INSTANCE-openspecimen-data
-      - §§INSTANCE-openspecimen-gradle
     volumes_from: 
       - §§INSTANCE-openspecimen-data
 
@@ -77,6 +58,5 @@ services:
     volumes:
       - §§FOLDER/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
       - §§FOLDER/data/mysql:/var/lib/mysql
-      - §§FOLDER/data/dist:/opt/dist
       - §§FOLDER/data/os-data:/opt/openspecimen/os-data
       - §§FOLDER/data/os-plugins:/opt/openspecimen/os-plugins

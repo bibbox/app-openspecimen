@@ -54,6 +54,7 @@ EOF
   java -jar /opt/scripts/adduser.jar &
   
 else
+  cp /opt/dist/openspecimen.war $CATALINA_HOME/webapps/ROOT.war
   $CATALINA_HOME/bin/startup.sh
 fi
 

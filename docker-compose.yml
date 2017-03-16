@@ -18,6 +18,7 @@ services:
       - MYSQL_DATABASE=§§MYSQL_DATABASE
       - MYSQL_USER=§§MYSQL_USER
       - MYSQL_PASSWORD=§§MYSQL_PASSWORD
+      - RELEASEURL=https://github.com/krishagni/openspecimen/archive/v3.4.1.zip
     environment:
       - DATABASE_HOST=§§INSTANCE-openspecimen-db
     volumes_from: 

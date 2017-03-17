@@ -7,7 +7,7 @@
                 "function() {",
                 "var appID = '&&aid';",
 				"var localId1      = '&&id1';",
-				"var restinfo        = 'http://' + appID + '/rest/ng/specimens/' + localId1;",
+				"var result        = 'http://' + appID + '/rest/ng/specimens/' + localId1;",
 				"return result;",
                 "}",
                 ")()"

@@ -7,6 +7,23 @@ networks:
 
 services:
 
+§§INSTANCE-openspecimen-gradle:
+    image: bibbox/openspecimen-gradle
+    container_name: §§INSTANCE-openspecimen-gradle
+    networks:
+      - bibbox-default-network
+    environment:
+      - DATABASE_HOST=§§INSTANCE-openspecimen-db
+      - MYSQL_ROOT_PASSWORD=§§MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=§§MYSQL_DATABASE
+      - MYSQL_USER=§§MYSQL_USER
+      - MYSQL_PASSWORD=§§MYSQL_PASSWORD
+      - RELEASEURL=https://github.com/krishagni/openspecimen/archive/v4.0.RC1.zip
+    environment:
+      - DATABASE_HOST=§§INSTANCE-openspecimen-db
+    volumes_from: 
+      - §§INSTANCE-openspecimen-data
+
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen
     container_name: §§INSTANCE-openspecimen-web

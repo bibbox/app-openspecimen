@@ -57,8 +57,8 @@ services:
     image: busybox
     container_name: §§INSTANCE-openspecimen-data
     volumes:
-      - §§FOLDER/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
-      - §§FOLDER/data/mysql:/var/lib/mysql
-      - §§FOLDER/data/os-data:/opt/openspecimen/os-data
-      - §§FOLDER/data/os-plugins:/opt/openspecimen/os-plugins
-      - §§FOLDER/data/dist:/opt/dist
+      - ./config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - ./data/mysql:/var/lib/mysql
+      - ./data/os-data:/opt/openspecimen/os-data
+      - ./data/os-plugins:/opt/openspecimen/os-plugins
+      - ./data/dist:/opt/dist

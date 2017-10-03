@@ -61,4 +61,3 @@ services:
       - ./data/mysql:/var/lib/mysql
       - ./data/os-data:/opt/openspecimen/os-data
       - ./data/os-plugins:/opt/openspecimen/os-plugins
-      - ./data/dist:/opt/dist

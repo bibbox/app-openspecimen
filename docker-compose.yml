@@ -8,7 +8,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen:v2-1
+    image: bibbox/openspecimen:v2-2
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:

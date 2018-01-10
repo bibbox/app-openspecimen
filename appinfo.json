@@ -1,8 +1,8 @@
 {
-	"name": "OpenSpecimen v4.3 BETA Release",
+	"name": "OpenSpecimen v4.3.1",
 	"short_name": "OpenSpecimen",
 	"version": "v4.3",
-	"description": "v4.3 BETA Release not for production",
+	"description": "v4.3.1",
 	"catalogue_url": "http://biobankapps.com/software/view?id=26",
 	"application_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/1115878/End+User+Training",
 	"tags": ["Sample Management", "BIMS"],

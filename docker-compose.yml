@@ -12,7 +12,7 @@ services:
     networks:
       - bibbox-default-network
     environment:
-      - RELEASEURL=https://github.com/bibbox/openspecimen/archive/v4.3.x.zip
+      - RELEASEURL=https://github.com/bibbox/openspecimen/archive/v5.0.x.zip
     depends_on:
       - §§INSTANCE-openspecimen-data
     volumes_from: 

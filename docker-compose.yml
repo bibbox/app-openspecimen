@@ -19,7 +19,8 @@ services:
       - §§INSTANCE-openspecimen-data
 
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen
+    build: 
+      context: ./images/openspecimen
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:

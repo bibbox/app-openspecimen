@@ -6,7 +6,7 @@
 # 0.0.1 : initial creation of image with java version 1.8.0_72-b15 (766.4 MB)
 # 0.0.2 : use existing build for tomcat and autobuild gradle container
 
-FROM tomcat:8.0-jre8
+FROM tomcat:9.0-jre8
 
 MAINTAINER Suyesh Amatya <suyesh.amatya@ki.se>
 

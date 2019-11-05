@@ -51,7 +51,7 @@ services:
       - §§INSTANCE-openspecimen-data
 
   §§INSTANCE-openspecimen-db:
-    image: mariadb
+    image: mysql:8.0
     container_name: §§INSTANCE-openspecimen-db
     restart: unless-stopped
     networks:

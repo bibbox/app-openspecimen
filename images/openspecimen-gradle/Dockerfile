@@ -34,7 +34,7 @@ RUN apt-get update \
     && echo '  PATH="$PATH:$GRADLE_HOME/bin"' >> /.profile \
     && echo 'fi' >> /.profile \
     && . /.profile \
-    && curl -sL https://deb.nodesource.com/setup_6.x | bash - \
+    && curl -sL https://deb.nodesource.com/setup_13.x | bash - \
     && apt-get -y install nodejs \
     && npm install -g bower \
     && npm install -g yo \

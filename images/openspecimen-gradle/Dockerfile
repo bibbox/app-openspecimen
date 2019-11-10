@@ -11,17 +11,16 @@ MAINTAINER Robert Reihs <robert.reihs@gmail.com>
 RUN apt-get update \
     && apt-get -y install curl unzip git apt-utils software-properties-common \
 	&& apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C2518248EEA14886 \
-	&& apt-get install python-software-properties \
-	&& add-apt-repository ppa:webupd8team/java -y \
+	&& apt-get -y install python-software-properties \
 	&& apt-get update \
     && echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
-    && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list \
-    && echo "deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee -a /etc/apt/sources.list.d/webupd8team-java.list \
-    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys EEA14886 \
+    && echo "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bionic main" | tee etc/apt/sources.list.d/linuxuprising-java.list \
+	&& apt-get -y install dirmngr \
+	&& apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install oracle-java8-installer \
-    && apt-get -y install oracle-java8-set-default \
+    && apt-get -y install oracle-java12-installer \
+    && apt-get -y install oracle-java12-set-default \
     && mkdir -p /opt/packages/gradle \
     && cd /opt/packages/gradle \
     && wget https://services.gradle.org/distributions/gradle-3.0-bin.zip \

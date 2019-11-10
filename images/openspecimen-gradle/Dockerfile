@@ -9,8 +9,10 @@ FROM debian:jessie
 MAINTAINER Robert Reihs <robert.reihs@gmail.com>
 
 RUN apt-get update \
-    && apt-get -y install curl unzip git \
+    && apt-get -y install curl unzip git apt-utils software-properties-common \
 	&& apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C2518248EEA14886 \
+	&& apt-get install python-software-properties \
+	&& add-apt-repository ppa:webupd8team/java -y \
 	&& apt-get update \
     && echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
     && echo "deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main" | tee /etc/apt/sources.list.d/webupd8team-java.list \

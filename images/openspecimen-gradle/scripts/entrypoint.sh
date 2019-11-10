@@ -12,6 +12,25 @@ if [[ ! -f "$file" ]]; then
   mv openspecimen-* openspecimen_build
   cd /opt/openspecimen_build/
   
+  rm /opt/openspecimen_build/build.properties
+  
+  echo "app_home = <app_container_home>" >> /opt/openspecimen_build/build.properties
+  echo "app_data_dir = <app_data_dir>" >> /opt/openspecimen_build/build.properties
+  echo "app_log_conf =" >> /opt/openspecimen_build/build.properties
+  echo "datasource_jndi = java:/comp/env/jdbc/openspecimen" >> /opt/openspecimen_build/build.properties
+  echo "deployment_type = fresh" >> /opt/openspecimen_build/build.properties
+  echo "" >> /opt/openspecimen_build/build.properties
+  echo "database_type = mysql" >> /opt/openspecimen_build/build.properties
+  echo "database_host = localhost" >> /opt/openspecimen_build/build.properties
+  echo "database_port = 3306" >> /opt/openspecimen_build/build.properties
+  echo "database_name = osdb" >> /opt/openspecimen_build/build.properties
+  echo "database_username = root" >> /opt/openspecimen_build/build.properties
+  echo "database_password = root" >> /opt/openspecimen_build/build.properties
+  echo "" >> /opt/openspecimen_build/build.properties
+  echo "show_sql = false" >> /opt/openspecimen_build/build.properties
+  echo "" >> /opt/openspecimen_build/build.properties
+  echo "plugin_dir = <path-to-directory-containing-plugin-jars>" >> /opt/openspecimen_build/build.properties
+  
   sed -i "s#<app_container_home>#${APP_HOME}#g" /opt/openspecimen_build/build.properties
   sed -i "s#<app_data_dir>#${APP_DATA_DIR}#g" /opt/openspecimen_build/build.properties
   sed -i "s/database_host = localhost/database_host = ${DATABASE_HOST}/g" /opt/openspecimen_build/build.properties

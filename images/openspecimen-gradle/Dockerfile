@@ -19,8 +19,8 @@ RUN apt-get update \
 	&& apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install oracle-java12-installer \
-    && apt-get -y install oracle-java12-set-default \
+    && apt-get -y install oracle-java13-installer \
+    && apt-get -y install oracle-java13-set-default \
     && mkdir -p /opt/packages/gradle \
     && cd /opt/packages/gradle \
     && wget https://services.gradle.org/distributions/gradle-3.0-bin.zip \

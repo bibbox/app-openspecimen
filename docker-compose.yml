@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-gradle:
-    image: bibbox/openspecimen-gradle
+    image: bibbox/openspecimen-gradle:v6.2.x
     container_name: §§INSTANCE-openspecimen-gradle
     networks:
       - bibbox-default-network

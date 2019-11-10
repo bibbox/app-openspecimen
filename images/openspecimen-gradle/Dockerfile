@@ -24,7 +24,7 @@ RUN apt-get update \
     && apt-get -y install oracle-java13-set-default \
     && mkdir -p /opt/packages/gradle \
     && cd /opt/packages/gradle \
-    && wget https://services.gradle.org/distributions/gradle-3.0-bin.zip \
+    && wget https://services.gradle.org/distributions/gradle-6.0-bin.zip \
     && unzip gradle-6.0-bin.zip \
     && rm gradle-6.0-bin.zip \
     && ln -s /opt/packages/gradle/gradle-6.0 /opt/gradle \

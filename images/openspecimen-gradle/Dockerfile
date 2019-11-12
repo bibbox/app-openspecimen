@@ -14,14 +14,15 @@ RUN apt-get update \
 	&& apt-get -y install python-software-properties \
 	&& apt-get update \
     && echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections \
+	&& echo oracle-java11-installer shared/accepted-oracle-license-v1-2 select true | /usr/bin/debconf-set-selections \
 	&& echo oracle-java13-installer shared/accepted-oracle-license-v1-2 select true | /usr/bin/debconf-set-selections \
     && echo "deb http://ppa.launchpad.net/linuxuprising/java/ubuntu bionic main" | tee etc/apt/sources.list.d/linuxuprising-java.list \
 	&& apt-get -y install dirmngr \
 	&& apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 73C3DB2A \
     && apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install oracle-java13-installer \
-    && apt-get -y install oracle-java13-set-default \
+    && apt-get -y install oracle-java11-installer \
+    && apt-get -y install oracle-java11-set-default \
     && mkdir -p /opt/packages/gradle \
     && cd /opt/packages/gradle \
     && wget https://services.gradle.org/distributions/gradle-3.0-bin.zip \

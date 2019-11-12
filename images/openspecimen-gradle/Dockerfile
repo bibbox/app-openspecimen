@@ -24,10 +24,10 @@ RUN apt-get update \
     && apt-get -y install oracle-java13-set-default \
     && mkdir -p /opt/packages/gradle \
     && cd /opt/packages/gradle \
-    && wget https://services.gradle.org/distributions/gradle-3.0-bin.zip \
-    && unzip gradle-3.0-bin.zip \
-    && rm gradle-3.0-bin.zip \
-    && ln -s /opt/packages/gradle/gradle-3.0 /opt/gradle \
+    && wget https://services.gradle.org/distributions/gradle-5.0-bin.zip \
+    && unzip gradle-5.0-bin.zip \
+    && rm gradle-5.0-bin.zip \
+    && ln -s /opt/packages/gradle/gradle-5.0 /opt/gradle \
     && echo '# Gradle' >> /.profile \
     && echo 'if [ -d "/opt/gradle" ]; then' >> /.profile \
     && echo '  export GRADLE_HOME="/opt/gradle"' >> /.profile \

@@ -6,18 +6,6 @@ networks:
 
 services:
 
-  §§INSTANCE-openspecimen-gradle:
-    image: bibbox/openspecimen-gradle:v6.2.x
-    container_name: §§INSTANCE-openspecimen-gradle
-    networks:
-      - bibbox-default-network
-    environment:
-      - RELEASEURL=https://github.com/bibbox/openspecimen/archive/v6.1.x.zip
-    depends_on:
-      - §§INSTANCE-openspecimen-data
-    volumes_from: 
-      - §§INSTANCE-openspecimen-data
-
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen
     container_name: §§INSTANCE-openspecimen-web
@@ -45,7 +33,6 @@ services:
     depends_on:
       - §§INSTANCE-openspecimen-db
       - §§INSTANCE-openspecimen-data
-      - §§INSTANCE-openspecimen-gradle
     volumes_from: 
       - §§INSTANCE-openspecimen-data
 
@@ -74,3 +61,4 @@ services:
       - §§FOLDER/data/os-data:/opt/openspecimen/os-data
       - §§FOLDER/data/os-plugins:/opt/openspecimen/os-plugins
       - §§FOLDER/data/dist:/opt/dist
+      - §§FOLDER/config/openspecimen.war:/opt/dist/openspecimen.war

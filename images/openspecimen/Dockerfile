@@ -23,6 +23,7 @@ RUN apt-get update \
 ADD configs/tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
 # Add data source configuration for MySQL root user (username="root" password="openspecimen")
 ADD configs/context.xml /opt/tomcat/conf/context.xml
+ADD configs/openspecimen.properties /opt/tomcat/conf/openspecimen.properties
 # ADD openspecimen war file build with the gradle container with default values
 ADD openspecimen.war /opt/dist/openspecimen.war
 

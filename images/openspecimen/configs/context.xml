@@ -35,7 +35,13 @@
       <Resource name="jdbc/openspecimen" auth="Container" type="javax.sql.DataSource"
       	maxActive="100" maxIdle="30" maxWait="10000"
       	username="§§username" password="§§password" driverClassName="§§useddatabasedriver"
-      	url="jdbc:§§useddatabasetype://§§host:§§port/§§database" />
+      	url="jdbc:§§useddatabasetype://§§host:§§port/§§database" 
+		testOnBorrow="true" validationQuery="select 1 from dual" />
+		
+	  <Environment
+		  name="config/openspecimen"
+		  value="$TOMCAT_DIR/conf/openspecimen.properties"
+		  type="java.lang.String"/>
 
 
 </Context>

@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen
+    image: bibbox/openspecimen:v6-2-x
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:
@@ -60,5 +60,3 @@ services:
       - §§FOLDER/data/mysql:/var/lib/mysql
       - §§FOLDER/data/os-data:/opt/openspecimen/os-data
       - §§FOLDER/data/os-plugins:/opt/openspecimen/os-plugins
-      - §§FOLDER/data/dist:/opt/dist
-      - §§FOLDER/config/openspecimen.war:/opt/dist/openspecimen.war

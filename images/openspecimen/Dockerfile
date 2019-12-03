@@ -1,34 +1,68 @@
 # OpenSpecimen Tomcat Container
-# 
-# VERSION 0.0.2 
-#
  
-# 0.0.1 : initial creation of image with java version 1.8.0_72-b15 (766.4 MB)
-# 0.0.2 : use existing build for tomcat and autobuild gradle container
-
-FROM tomcat:9.0-jre8
-
-MAINTAINER Suyesh Amatya <suyesh.amatya@ki.se>
+FROM debian:jessie
+ARG DEBIAN_FRONTEND=noninteractive
+ARG VERSION="v6.2.x"
 
 RUN apt-get update \
-    && rm -r $CATALINA_HOME/webapps/ROOT \
-    && rm -r $CATALINA_HOME/webapps/docs \
-    && rm -r $CATALINA_HOME/webapps/examples \
-    && mkdir -p /opt/openspecimen/os-data \
-    && mkdir -p /opt/openspecimen/os-plugins \
-    && ln -s "$CATALINA_HOME" /opt/tomcat \
-    && wget http://central.maven.org/maven2/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar -O /opt/tomcat/lib/mysql-connector-java-5.1.31.jar
-    
-# Add admin/admin user
-ADD configs/tomcat-users.xml /opt/tomcat/conf/tomcat-users.xml
-# Add data source configuration for MySQL root user (username="root" password="openspecimen")
-ADD configs/context.xml /opt/tomcat/conf/context.xml
-ADD configs/openspecimen.properties /opt/tomcat/conf/openspecimen.properties
-# ADD openspecimen war file build with the gradle container with default values
-ADD openspecimen.war /opt/dist/openspecimen.war
+    && apt-get install -y software-properties-common apt-utils wget gnupg \
+    apt-transport-https ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
 
-ADD scripts /opt/scripts
-WORKDIR /opt/scripts
-RUN chmod a+x *.sh
+# Setup JDK
+RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add - \
+    && add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/ \
+    && apt-get update \
+    && apt install -y adoptopenjdk-8-hotspot
 
-ENTRYPOINT ["/opt/scripts/entrypoint.sh"]
+# Setup tomcat and dependencies
+RUN apt-get install -y build-essential libpng-dev \
+    && mkdir /opt/tomcat/ \
+    && useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat \
+    && wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.27/bin/apache-tomcat-9.0.27.tar.gz -P /tmp/ \
+    && tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat \
+    && ln -s /opt/tomcat/apache-tomcat-9.0.27 /opt/tomcat/latest \
+    && sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh' \
+    && chown -R tomcat:tomcat /opt/tomcat/apache-tomcat-9.0.27
+
+ENV GRADLE_HOME="/opt/gradle/gradle-2.0"
+ENV PATH="${GRADLE_HOME}/bin:${PATH}"
+
+# Setup build tools
+RUN wget http://services.gradle.org/distributions/gradle-2.0-bin.zip -P /tmp \
+    && apt-get install -y unzip curl git \
+    && unzip -d /opt/gradle /tmp/gradle-*.zip \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash - \
+    && apt-get install -y nodejs \
+    && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
+    && cd /tmp \
+    && git clone https://github.com/krishagni/openspecimen.git -b $VERSION \
+    && rm /tmp/openspecimen/build.properties \
+    && rm /opt/tomcat/latest/conf/context.xml \
+    && cd openspecimen/www/ \
+    && npm install --loglevel=error \
+    && npm install --loglevel=error -g grunt gulp-cli bower \
+    && npm audit fix \
+    && bower install --allow-root \
+    && apt remove -y unzip curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy config files
+ADD configs/build.properties /tmp/openspecimen/
+ADD configs/context.xml /opt/tomcat/latest/conf/
+ADD configs/openspecimen.properties /opt/tomcat/latest/conf/
+
+# Build WAR file
+RUN cd /tmp/openspecimen \
+    && gradle build \
+    && cp build/libs/openspecimen.war /opt/tomcat/latest/webapps/ \
+    && mkdir -p /opt/tomcat/latest/OpenSpecimen/plugins \
+    && chown tomcat:tomcat /opt/tomcat/latest/conf/openspecimen.properties \
+    && chown tomcat:tomcat /opt/tomcat/latest/conf/context.xml \
+    && wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar -P /opt/tomcat/latest/lib/ \
+    && rm -rf /tmp/openspecimen \
+    && apt remove -y git
+
+RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
+
+ENTRYPOINT ["/bin/sh"]

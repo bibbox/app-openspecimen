@@ -19,7 +19,7 @@ RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | a
 RUN apt-get install -y build-essential libpng-dev \
     && mkdir /opt/tomcat/ \
     && useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat \
-    && wget hhttps://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz -P /tmp/ \
+    && wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz -P /tmp/ \
     && tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat \
     && ln -s /opt/tomcat/apache-tomcat-9.0.27 /opt/tomcat/latest \
     && sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh' \

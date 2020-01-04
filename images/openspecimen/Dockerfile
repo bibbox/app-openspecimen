@@ -65,4 +65,8 @@ RUN cd /tmp/openspecimen \
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 
-ENTRYPOINT ["/bin/sh"]
+ADD scripts /opt/scripts
+WORKDIR /opt/scripts
+RUN chmod a+x *.sh
+
+ENTRYPOINT ["/opt/scripts/entrypoint.sh"]

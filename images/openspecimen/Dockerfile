@@ -21,7 +21,7 @@ RUN apt-get install -y build-essential libpng-dev \
     && useradd -r -m -U -d /opt/tomcat -s /bin/false tomcat \
     && wget https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.30/bin/apache-tomcat-9.0.30.tar.gz -P /tmp/ \
     && tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat \
-    && ln -s /opt/tomcat/apache-tomcat-9.0.27 /opt/tomcat/latest \
+    && ln -s /opt/tomcat/apache-tomcat-9.0.30 /opt/tomcat/latest \
     && sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh' \
     && chown -R tomcat:tomcat /opt/tomcat/apache-tomcat-9.0.27
 

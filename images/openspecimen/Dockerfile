@@ -23,7 +23,7 @@ RUN apt-get install -y build-essential libpng-dev \
     && tar xf /tmp/apache-tomcat-9*.tar.gz -C /opt/tomcat \
     && ln -s /opt/tomcat/apache-tomcat-9.0.30 /opt/tomcat/latest \
     && sh -c 'chmod +x /opt/tomcat/latest/bin/*.sh' \
-    && chown -R tomcat:tomcat /opt/tomcat/apache-tomcat-9.0.27
+    && chown -R tomcat:tomcat /opt/tomcat/apache-tomcat-9.0.30
 
 ENV GRADLE_HOME="/opt/gradle/gradle-2.0"
 ENV PATH="${GRADLE_HOME}/bin:${PATH}"

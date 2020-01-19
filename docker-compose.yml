@@ -13,7 +13,7 @@ services:
     networks:
       - bibbox-default-network
     links:
-      - §§INSTANCE-openspecimen-db:§§INSTANCE-openspecimen-db
+      - §§INSTANCE-openspecimen-db:openspecimen-db
     ports:
       - "§§PORT:8080"
     environment:

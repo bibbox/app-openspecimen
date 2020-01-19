@@ -55,8 +55,9 @@ ADD configs/openspecimen.properties /opt/tomcat/latest/conf/
 # Build WAR file
 RUN cd /tmp/openspecimen \
     && gradle build \
-    && cp build/libs/openspecimen.war /opt/tomcat/latest/webapps/ \
+    && cp build/libs/openspecimen.war /opt/tomcat/latest/webapps/ROOT.war \
     && mkdir -p /opt/tomcat/latest/OpenSpecimen/plugins \
+    && mkdir -p /opt/tomcat/latest/OpenSpecimen/Data \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/openspecimen.properties \
     && chown tomcat:tomcat /opt/tomcat/latest/conf/context.xml \
     && wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar -P /opt/tomcat/latest/lib/ \

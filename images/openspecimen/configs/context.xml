@@ -23,7 +23,7 @@
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
 
-    <Resource name="jdbc/openspecimen" driverClassName="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://localhost:3306/openspecimen" auth="Container" maxActive="100" password="testpw" maxWait="10000" username="dbuser" maxIdle="30" type="javax.sql.DataSource"/>
+    <Resource name="jdbc/openspecimen" driverClassName="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://openspecimen-db:3306/openspecimen" auth="Container" maxActive="100" password="testpw" maxWait="10000" username="dbuser" maxIdle="30" type="javax.sql.DataSource"/>
 
     <Environment name="config/openspecimen" value="/opt/tomcat/apache-tomcat-9.0.27/conf/openspecimen.properties" type="java.lang.String"/>
 

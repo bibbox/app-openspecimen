@@ -41,29 +41,29 @@ error_exit()
 
 updateConfigurationFile()
 {
-    echo "Creat and Update config files"
+    echo "Create and Update config files"
     if [[ ! -f "$folder/config/openspecimen.cnf" ]]; then
         cp config/openspecimen.cnf "$folder/config/openspecimen.cnf"
     fi
-    if  [[ ! -f "$folder/docker-compose.yml" ]]; then
-        cp docker-compose.yml "$folder/docker-compose.yml"
+    if  [[ ! -f "$folder/docker-compose-template.yml" ]]; then
+        cp docker-compose-template.yml "$folder/docker-compose-template.yml"
     fi
     
-    sed -i "s/§§INSTANCE/${instance}/g" "$folder/docker-compose.yml"
-    sed -i "s#§§FOLDER#${folder}#g" "$folder/docker-compose.yml"
-    sed -i "s/§§PORT/${port}/g" "$folder/docker-compose.yml"
-    sed -i "s#§§MYSQL_ROOT_PASSWORD#${MYSQL_ROOT_PASSWORD}#g" "$folder/docker-compose.yml"
-    sed -i "s/§§MYSQL_DATABASE/${MYSQL_DATABASE}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§MYSQL_USER/${MYSQL_USER}/g" "$folder/docker-compose.yml"
-    sed -i "s#§§MYSQL_PASSWORD#${MYSQL_PASSWORD}#g" "$folder/docker-compose.yml"
-    sed -i "s/§§TOMCAT_MANAGER_USER/${TOMCAT_MANAGER_USER}/g" "$folder/docker-compose.yml"
-    sed -i "s#§§TOMCAT_MANAGER_PASSWORD#${TOMCAT_MANAGER_PASSWORD}#g" "$folder/docker-compose.yml"
-    sed -i "s/§§INSTITUTE_NAME/${INSTITUTE_NAME}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§EMAIL_ADDRESS/${EMAIL_ADDRESS}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§FIRST_NAME/${FIRST_NAME}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§LAST_NAME/${LAST_NAME}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§LOGIN_NAME/${LOGIN_NAME}/g" "$folder/docker-compose.yml"
-    sed -i "s/§§ADDRESS/${ADDRESS}/g" "$folder/docker-compose.yml"
+    sed -i "s/§§INSTANCE/${instance}/g" "$folder/docker-compose-template.yml"
+    sed -i "s#§§FOLDER#${folder}#g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§PORT/${port}/g" "$folder/docker-compose-template.yml"
+    sed -i "s#§§MYSQL_ROOT_PASSWORD#${MYSQL_ROOT_PASSWORD}#g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§MYSQL_DATABASE/${MYSQL_DATABASE}/g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§MYSQL_USER/${MYSQL_USER}/g" "$folder/docker-compose-template.yml"
+    sed -i "s#§§MYSQL_PASSWORD#${MYSQL_PASSWORD}#g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§TOMCAT_MANAGER_USER/${TOMCAT_MANAGER_USER}/g" "$folder/docker-compose-template.yml"
+    sed -i "s#§§TOMCAT_MANAGER_PASSWORD#${TOMCAT_MANAGER_PASSWORD}#g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§INSTITUTE_NAME/${INSTITUTE_NAME}/g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§EMAIL_ADDRESS/${EMAIL_ADDRESS}/g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§FIRST_NAME/${FIRST_NAME}/g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§LAST_NAME/${LAST_NAME}/g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§LOGIN_NAME/${LOGIN_NAME}/g" "$folder/docker-compose-template.yml"
+    sed -i "s/§§ADDRESS/${ADDRESS}/g" "$folder/docker-compose-template.yml"
 }
 
 createFolders()

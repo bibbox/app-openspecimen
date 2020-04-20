@@ -1,0 +1,20 @@
+[
+   {
+      "id":"NAME_AS_IN_DOCKER_TEMPLATE_1",
+      "display_name":"Name Displayed in GUI at the Installation and Configuration",
+      "type":"text, number, password",
+      "default_value":"Default Value",
+      "description":"Description shown in the GUI",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"NAME_AS_IN_DOCKER_TEMPLATE_2",
+      "display_name":"Name Displayed in GUI at the Installation and Configuration",
+      "type":"text, number, password",
+      "default_value":"Default Value",
+      "description":"Description shown in the GUI",
+      "min_length": "1",
+      "max_length": "128"
+   }
+]

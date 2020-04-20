@@ -104,7 +104,7 @@ RUN gradle build --stacktrace --debug \
 #CSet up OS
 RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf"
 RUN rm -rf /opt/tomcat/latest/webapps/ROOT \
-    && cp build/libs/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war \
+    && cp build/libs/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war 
 
 
 # Build WAR file

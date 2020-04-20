@@ -1,0 +1,27 @@
+{
+	"documentation": ["https://github.com/krishagni/openspecimen/tree/c56545633654042cf87ab00d1d1d1b15b2ef3257/WEB-INF/src/com/krishagni/catissueplus/rest/controller"],
+	"mappings": {
+		"SPECIMEN": {
+			"human_readable": [
+                "(",
+                "function() {",
+                "var appID = '&&aid';",
+				"var localId1      = '&&id1';",
+				"var result        = 'http://' + appID + '/rest/ng/specimens/' + localId1;",
+				"return result;",
+                "}",
+                ")()"
+			],
+			"get_info": [
+                "(",
+                "function() {",
+                "var appID = '&&aid';",
+				"var localId1      = '&&id1';",
+				"var result        = 'http://' + appID + '/rest/ng/specimens/' + localId1;",
+				"return result;",
+                "}",
+                ")()"
+			]
+		}
+	}
+}

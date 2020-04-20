@@ -1,0 +1,47 @@
+[
+   {
+      "id":"INSTITUTE_NAME",
+      "display_name":"OpenSpecimen Institute",
+      "type":"text",
+      "default_value":"BIBBOX Demo Biobank",
+      "description":"Institute name in OpenSpecimen for the first user.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"MYSQL_USER",
+      "display_name":"databaseuser",
+      "type":"text",
+      "default_value":"openspecimen",
+      "description":"Username for the database, leave empty for default (default:openspecimen)",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"MYSQL_PASSWORD",
+      "display_name":"databasepassword",
+      "type":"PASSWORD",
+      "default_value":"",
+      "description":"Password for the database.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"TOMCAT_MANAGER_USER",
+      "display_name":"Tomcat Manger User",
+      "type":"text",
+      "default_value":"admin",
+      "description":"Username for the Tomcat Manager Console, leave empty for default (default:admin)",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"TOMCAT_MANAGER_PASSWORD",
+      "display_name":"Tomcat Manger Password",
+      "type":"PASSWORD",
+      "default_value":"",
+      "description":"Password for the Tomcat Manager Console.",
+      "min_length": "1",
+      "max_length": "128"
+   }
+]

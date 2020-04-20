@@ -65,6 +65,7 @@ ADD configs/build.properties /tmp/openspecimen/
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
+ADD config/openspecimen.cnf /etc/mysql/conf.d/
 RUN sed -i -r 's/^(JAVA_OPTS=.*)"/\1 -Xmx2048m"/' "/etc/default/tomcat9"
 
 

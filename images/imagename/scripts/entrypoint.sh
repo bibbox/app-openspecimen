@@ -7,6 +7,6 @@ echo "Wait for DB server to be ready"
 /opt/scripts/waitforit.sh "${DATABASE_HOST}:${DATABASE_PORT}"
 
 
-/opt/tomcat/latest/bin/catalina.sh start
+/var/lib/tomcat9/latest/bin/catalina.sh start
 
-tail -f /opt/tomcat/latest/logs/catalina.out -f /opt/openspecimen/os-data/logs/os.log
+tail -f /var/lib/tomcat9/logs/catalina.out -f /var/lib/openspecimen/data/logs/os.log

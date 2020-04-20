@@ -1,0 +1,16 @@
+{
+  "mappings": [
+    {
+      "id": "§§PORT1",
+      "url": "§§INSTANCE",
+      "protocol": "HTTP",
+      "proxy" : "PRIMARY"
+    },
+    {
+      "id": "§§PORT2",
+      "url": "§§INSTANCE-monitoring",
+      "protocol": "HTTP",
+      "proxy" : "PRIMARY"
+    }
+  ]
+}

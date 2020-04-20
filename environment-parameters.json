@@ -21,7 +21,7 @@
       "id":"MYSQL_PASSWORD",
       "display_name":"databasepassword",
       "type":"PASSWORD",
-      "default_value":"",
+      "default_value":"password",
       "description":"Password for the database.",
       "min_length": "1",
       "max_length": "128"
@@ -39,7 +39,7 @@
       "id":"TOMCAT_MANAGER_PASSWORD",
       "display_name":"Tomcat Manger Password",
       "type":"PASSWORD",
-      "default_value":"",
+      "default_value":"password",
       "description":"Password for the Tomcat Manager Console.",
       "min_length": "1",
       "max_length": "128"

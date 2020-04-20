@@ -77,9 +77,9 @@ RUN chown -R $$USER:USER \
 #JSON PATCH
 RUN cd /tmp/openspecimen/www
 RUN echo "$(cat <<EOF \
---- package.json        2019-07-17 15:14:00.419021754 +0000 \
-+++ package.json.new    2019-07-18 04:27:36.961700752 +0000 \
-@@ -34,7 +34,7 @@
+    --- package.json        2019-07-17 15:14:00.419021754 +0000 \
+    +++ package.json.new    2019-07-18 04:27:36.961700752 +0000 \
+    @@ -34,7 +34,7 @@ \
     "grunt-contrib-copy": "^0.7.0", \
     "grunt-contrib-cssmin": "^0.10.0", \
     "grunt-contrib-htmlmin": "^0.3.0", \

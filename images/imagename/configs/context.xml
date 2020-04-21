@@ -25,7 +25,7 @@
 
     <Resource name="jdbc/openspecimen" driverClassName="com.mysql.cj.jdbc.Driver" url="jdbc:mysql://openspecimen-db:3306/openspecimen" auth="Container" maxActive="100" password="openspecimen" maxWait="10000" username="openspecimen" maxIdle="30" type="javax.sql.DataSource"/>
 
-    <Environment name="config/openspecimen" value="/opt/tomcat/latest/conf/openspecimen.properties" type="java.lang.String"/>
+    <Environment name="config/openspecimen" value="/var/lib/tomcat9/conf/openspecimen.properties" type="java.lang.String"/>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--

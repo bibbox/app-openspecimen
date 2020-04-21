@@ -32,9 +32,8 @@ services:
       - §§INSTANCE-openspecimen-data
 
   §§INSTANCE-openspecimen-db:
-    image: mysql:5.7
+    image: mysql:8
     container_name: §§INSTANCE-openspecimen-db
-    command: lower_case_table_names=1
     restart: unless-stopped
     networks:
       - bibbox-default-network
@@ -52,7 +51,7 @@ services:
     image: busybox
     container_name: §§INSTANCE-openspecimen-data
     volumes:
-      - ./config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - ./images/imagename/config/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
       - ./data/mysql:/var/lib/mysql  
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins

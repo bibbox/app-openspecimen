@@ -45,15 +45,6 @@
       "max_length": "128"
    },
    {
-      "id":"INSTITUE_NAME",
-      "display_name":"Name",
-      "type":"text",
-      "default_value":"BIBBOX Demo Biobank",
-      "description":"Name of the Institut",
-      "min_length": "1",
-      "max_length": "128"
-   },
-   {
       "id":"EMAIL_ADRESS",
       "display_name":"email-adress",
       "type":"text",

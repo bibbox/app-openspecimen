@@ -1,11 +1,8 @@
 {
-    "makefolders":[
-        "images/imagename"
-    ],
     "copyfiles":[
         {
-            "source":"images/imagename",
-            "destination":"images/imagename"
+            "source":"images/imagename/",
+            "destination":"images/imagename/"
         }
     ]
 }

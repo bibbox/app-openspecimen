@@ -16,8 +16,8 @@
             "destination":"var/config/app-data/db.data"
         },
         {
-            "source":"image/imagename/*",
-            "destination":"image/imagename/*"
+            "source":"image/imagename",
+            "destination":"image/imagename"
         }
     ]
 }

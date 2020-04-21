@@ -25,6 +25,11 @@ services:
       - TOMCAT_MANAGER_USER=§§TOMCAT_MANAGER_USER
       - TOMCAT_MANAGER_PASSWORD=§§TOMCAT_MANAGER_PASSWORD
       - INSTITUTE_NAME=§§INSTITUTE_NAME
+      - EMAIL_ADRESS=§§EMAIL_ADRESS
+      - FIRST_NAME=§§FIRST_NAME
+      - LAST_NAME=§§LAST_NAME
+      - LOGIN_NAME=§§LOGIN_NAME
+      - ADRESS=§§ADRESS
     depends_on:
       - §§INSTANCE-openspecimen-db
       - §§INSTANCE-openspecimen-data

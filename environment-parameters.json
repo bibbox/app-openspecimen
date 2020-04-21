@@ -21,7 +21,7 @@
       "id":"MYSQL_PASSWORD",
       "display_name":"databasepassword",
       "type":"PASSWORD",
-      "default_value":"password",
+      "default_value":"",
       "description":"Password for the database.",
       "min_length": "1",
       "max_length": "128"
@@ -39,8 +39,62 @@
       "id":"TOMCAT_MANAGER_PASSWORD",
       "display_name":"Tomcat Manger Password",
       "type":"PASSWORD",
-      "default_value":"password",
+      "default_value":"",
       "description":"Password for the Tomcat Manager Console.",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"INSTITUE_NAME",
+      "display_name":"Name",
+      "type":"text",
+      "default_value":"BIBBOX Demo Biobank",
+      "description":"Name of the Institut",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"EMAIL_ADRESS",
+      "display_name":"email-adress",
+      "type":"text",
+      "default_value":"admin@bibbox.org",
+      "description":"email adress of the user",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"FIRST_NAME",
+      "display_name":"First name",
+      "type":"text",
+      "default_value":"admin",
+      "description":"First Name of the User, DAta will directly send to BND/CIA/NSA/... and others",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"LAST_NAME",
+      "display_name":"Last name",
+      "type":"text",
+      "default_value":"Bibbox",
+      "description":"First Name of the User, pls enter your credit card details for your one safety!",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"LOGIN_NAME",
+      "display_name":"Login Name",
+      "type":"text",
+      "default_value":"bibboxadmin",
+      "description":"Login Name of the User",
+      "min_length": "1",
+      "max_length": "128"
+   },
+   {
+      "id":"ADRESS",
+      "display_name":"Adress",
+      "type":"text",
+      "default_value":"",
+      "description":"Adress of the User, Openspecimen will send to the adress!",
       "min_length": "1",
       "max_length": "128"
    }

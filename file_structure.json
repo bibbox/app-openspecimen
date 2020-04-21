@@ -1,7 +1,10 @@
 {
     "makefolders":[
         "var/app-config",
-        "var/app-data"
+        "var/app-data",
+        "images/imagename",
+        "images/imagename/config",
+        "images/imagename/scripts"
     ],
     "copyfiles":[
         {
@@ -13,8 +16,8 @@
             "destination":"var/config/app-data/db.data"
         },
         {
-            "source":"image/imagename/",
-            "destination":"image/imagename/"
+            "source":"image/imagename/*",
+            "destination":"image/imagename/*"
         }
     ]
 }

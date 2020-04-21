@@ -5,9 +5,7 @@
 * level: advanced
 * initial passwordd: ** Login!@3 **
 
-## Docker Images Used
- * [BIBBOX/openspecimen-gradle](https://hub.docker.com/r/bibbox/phenotips/)
- * [BIBBOX/openspecimen-application](https://hub.docker.com/r/bibbox/phenotips/) 
+## Docker Images Used 
  * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container
  * [busybox](https://hub.docker.com/_/busybox/), offical data container
  

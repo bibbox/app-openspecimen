@@ -37,7 +37,7 @@ services:
       - §§INSTANCE-openspecimen-data
 
   §§INSTANCE-openspecimen-db:
-    image: mysql:8
+    image: mysql:5.7
     container_name: §§INSTANCE-openspecimen-db
     restart: unless-stopped
     networks:

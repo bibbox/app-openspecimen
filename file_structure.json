@@ -16,52 +16,52 @@
             "destination":"var/config/app-data/db.data"
         },
         {
-            "source":"image/openspecimen/Dockerfile",
-            "destination":"image/openspecimen/Dockerfile"
+            "source":"images/openspecimen/Dockerfile",
+            "destination":"images/openspecimen/Dockerfile"
         },
         {
-            "source":"image/openspecimen/configs/build.properties",
-            "destination":"image/openspecimen/configs/build.properties"
+            "source":"images/openspecimen/configs/build.properties",
+            "destination":"images/openspecimen/configs/build.properties"
         },
         {
-            "source":"image/openspecimen/configs/context.xml",
-            "destination":"image/openspecimen/configs/context.xml"
+            "source":"images/openspecimen/configs/context.xml",
+            "destination":"images/openspecimen/configs/context.xml"
         },
         {
-            "source":"image/openspecimen/configs/openspecimen.cnf",
-            "destination":"image/openspecimen/configs/openspecimen.cnf"
+            "source":"images/openspecimen/configs/openspecimen.cnf",
+            "destination":"images/openspecimen/configs/openspecimen.cnf"
         },
         {
-            "source":"image/openspecimen/configs/openspecimen.properties",
-            "destination":"image/openspecimen/configs/openspecimen.properties"
+            "source":"images/openspecimen/configs/openspecimen.properties",
+            "destination":"images/openspecimen/configs/openspecimen.properties"
         },
         {
-            "source":"image/openspecimen/configs/package.json",
-            "destination":"image/openspecimen/configs/package.json"
+            "source":"images/openspecimen/configs/package.json",
+            "destination":"images/openspecimen/configs/package.json"
         },
         {
-            "source":"image/openspecimen/configs/tomcat-users.xml",
-            "destination":"image/openspecimen/configs/tomcat-users.xml"
+            "source":"images/openspecimen/configs/tomcat-users.xml",
+            "destination":"images/openspecimen/configs/tomcat-users.xml"
         },
         {
-            "source":"image/openspecimen/scripts/adduser.jar",
-            "destination":"image/openspecimen/scripts/adduser.jar"
+            "source":"images/openspecimen/scripts/adduser.jar",
+            "destination":"images/openspecimen/scripts/adduser.jar"
         },
         {
-            "source":"image/openspecimen/scripts/defaultvar.sh",
-            "destination":"image/openspecimen/scripts/defaultvar.sh"
+            "source":"images/openspecimen/scripts/defaultvar.sh",
+            "destination":"images/openspecimen/scripts/defaultvar.sh"
         },
         {
-            "source":"image/openspecimen/scripts/entrypoint.sh",
-            "destination":"image/openspecimen/scripts/entrypoint.sh"
+            "source":"images/openspecimen/scripts/entrypoint.sh",
+            "destination":"images/openspecimen/scripts/entrypoint.sh"
         },
         {
-            "source":"image/openspecimen/scripts/sqlproperties.properties",
-            "destination":"image/openspecimen/scripts/sqlporperties.properties"
+            "source":"images/openspecimen/scripts/sqlproperties.properties",
+            "destination":"images/openspecimen/scripts/sqlporperties.properties"
         },
         {
-            "source":"image/openspecimen/scripts/waitforit.sh",
-            "destination":"image/openspecimen/scripts/waitforit.sh"
+            "source":"images/openspecimen/scripts/waitforit.sh",
+            "destination":"images/openspecimen/scripts/waitforit.sh"
         }
     ]
 }

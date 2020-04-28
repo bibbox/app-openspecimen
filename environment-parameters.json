@@ -13,7 +13,7 @@
       "display_name":"Tomcat Manger User",
       "type":"text",
       "default_value":"admin",
-      "description":"Username for the Tomcat Manager Console, leave empty for default (default:admin)",
+      "description":"Username for the Tomcat Manager Console",
       "min_length": "1",
       "max_length": "128"
    },
@@ -40,7 +40,7 @@
       "display_name":"First name",
       "type":"text",
       "default_value":"admin",
-      "description":"First Name of the User, DAta will directly send to BND/CIA/NSA/... and others",
+      "description":"First Name of the User",
       "min_length": "1",
       "max_length": "128"
    },
@@ -49,7 +49,7 @@
       "display_name":"Last name",
       "type":"text",
       "default_value":"Bibbox",
-      "description":"First Name of the User, pls enter your credit card details for your one safety!",
+      "description":"First Name of the User",
       "min_length": "1",
       "max_length": "128"
    },
@@ -67,7 +67,7 @@
       "display_name":"Adress",
       "type":"text",
       "default_value":"",
-      "description":"Adress of the User, Openspecimen will send to the adress!",
+      "description":"Adress of the User",
       "min_length": "1",
       "max_length": "128"
    }

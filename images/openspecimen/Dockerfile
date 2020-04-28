@@ -5,27 +5,28 @@ ARG DEBIAN_FRONTEND=noninteractive
 ARG VERSION="v6.3.x"
 
 # update system
-RUN apt-get update 
+RUN apt-get update -q -y
 
 ## INSTALL DEPENDENCIES
 # apt install
-RUN apt install -y -q \
-    software-properties-common \
-    apt-utils \
-    wget \
-    gnupg \
-    apt-transport-https \
-    ca-certificates\
-    curl \
-    openjdk-8-jre-headless \
-    openjdk-8-jdk-headless \
-    tomcat9 \
-    nodejs \
-    npm \
-    gradle \
-    git \
-    nano \
-    gawk
+RUN apt-get install -y -q software-properties-common \
+    && apt-get install -y -q apt-utils \
+    && apt-get install -y -q wget \
+    && apt-get install -y -q gnupg \
+    && apt-get install -y -q apt-transport-https \
+    && apt-get install -y -q ca-certificates\
+    && apt-get install -y -q curl \
+    && apt-get install -y -q openjdk-8-jre-headless \
+    && apt-get install -y -q openjdk-8-jdk-headless \
+    && apt-get install -y -q tomcat9 \
+    && apt-get install -y -q nodejs \
+    && apt-get install -y -q npm \
+    && apt-get install -y -q gradle \
+    && apt-get install -y -q git \
+    && apt-get install -y -q nano \
+    && apt-get install -y -q gawk \
+    && apt-get update -y -q \
+    && apt-get upgrade -y -q
 
 #npm install
 RUN npm install -g bower \
@@ -47,12 +48,12 @@ RUN mkdir "/var/lib/openspecimen" \
     && mkdir "/var/lib/openspecimen/plugins" \
     && mkdir "/etc/systemd/system/tomcat9.service.d" \
     && mkdir "/tmp/openspecimen" \
-    && mkdir "/usr/share/tomcat9/lib/mysql-connector-java-8.0.19.jar"
+    && mkdir "/usr/share/tomcat9/lib/mysql-connector-java-8.0.18.jar"
 
 #MYSQL-Connector
 RUN cd /tmp \
     && wget "https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar" 
-ADD /tmp/mysql-connector-java-8.0.19/mysql-connector-java-8.0.19.jar /usr/share/tomcat9/lib/mysql-connector-java-8.0.19.jar
+ADD /tmp/mysql-connector-java-8.0.18/mysql-connector-java-8.0.18.jar /usr/share/tomcat9/lib/mysql-connector-java-8.0.19.jar
 
 #git openspecimen
 RUN cd /tmp/openspecimen \
@@ -67,7 +68,6 @@ ADD configs/build.properties /tmp/openspecimen/
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-ADD config/openspecimen.cnf /etc/mysql/conf.d/
 ADD config/package.json /tmp/openspecimen/www/
 RUN sed -i -r 's/^(JAVA_OPTS=.*)"/\1 -Xmx2048m"/' "/etc/default/tomcat9"
 
@@ -89,11 +89,11 @@ RUN cd /tmp/openspecimen \
     && gradle deploy
 
 #CSet up OS
-RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" \
-    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.iwas \
-    && rm -rf /var/lib/tomcat9/webapps/ROOT \
-    && rm -rf /var/lib/tomcat9/webbapps/openspecimen \
-    && cp /var/lib/tomcat9/webapps/ROOT.iwas /var/lib/tomcat9/webapps/ROOT.war 
+RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" 
+#    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.iwas \
+#    && rm -rf /var/lib/tomcat9/webapps/ROOT \
+#    && rm -rf /var/lib/tomcat9/webbapps/openspecimen \
+#    && cp /var/lib/tomcat9/webapps/ROOT.iwas /var/lib/tomcat9/webapps/ROOT.war 
 
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc

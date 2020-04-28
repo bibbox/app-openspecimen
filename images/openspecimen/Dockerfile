@@ -34,13 +34,12 @@ RUN npm install -g bower \
 
 ##SET UP OPENSPECIMEN BUILD
 #ENVIRONMENT
-ENV JRE_HOME="/usr/lib/jvm/java-8-openjdk-amd64" \
-    CATALINA_BASE="/var/lib/tomcat9" \
-    TOMCAT_HOME="/var/lib/tomcat9" 
-ENV export \
-    JRE_HOME \
-    CATALINA_BASE \
-    TOMCAT_HOME
+ENV JRE_HOME="/usr/lib/jvm/java-8-openjdk-amd64" 
+ENV CATALINA_BASE="/var/lib/tomcat9" 
+ENV TOMCAT_HOME="/var/lib/tomcat9" 
+ENV export JRE_HOME 
+ENV export CATALINA_BASE 
+ENV export TOMCAT_HOME
 
 # Directories for Openspecimen log-files/plugins
 RUN mkdir "/var/lib/openspecimen" \
@@ -88,7 +87,6 @@ RUN cd /tmp/openspecimen \
     && sed -i -e 's/mavenCentral()/maven { url "https://repo.maven.apache.org/maven2" }/g' build.gradle \
     && gradle deploy
 
-#CSet up OS
 RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" 
 #    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.iwas \
 #    && rm -rf /var/lib/tomcat9/webapps/ROOT \

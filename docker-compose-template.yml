@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-web:
-    build: ./images/openspecimen/
+    build: ./images/openspecimen
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:
@@ -56,6 +56,6 @@ services:
     image: busybox
     container_name: §§INSTANCE-openspecimen-data
     volumes:
-      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf  
-      - ./data/os-data:/var/lib/openspecimen/data
-      - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - $$FOLDER/images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - §§FOLDER/data/os-data:/opt/openspecimen/os-data
+      - §§FOLDER/data/os-plugins:/opt/openspecimen/os-plugins

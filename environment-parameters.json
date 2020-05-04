@@ -70,5 +70,15 @@
       "description":"Adress of the User",
       "min_length": "1",
       "max_length": "128"
+   },
+   {
+      "id":"FOLDER",
+      "display_name":"Folder",
+      "type":"text",
+      "default_value":"openspecimen",
+      "description":"installation folder",
+      "min_length":"1",
+      "max_length":"128"   
    }
+
 ]

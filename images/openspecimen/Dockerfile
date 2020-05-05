@@ -1,6 +1,6 @@
 # OpenSpecimen Tomcat Container
  
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 ARG DEBIAN_FRONTEND=noninteractive
 ARG VERSION="v6.3.x"
 
@@ -20,7 +20,8 @@ RUN apt-get install -y -q software-properties-common \
     && apt-get install -y -q dirmngr \
     && apt-get install -y -q openjdk-8-jre-headless \
     && apt-get install -y -q openjdk-8-jdk-headless \
-    && apt-get install -y -q tomcat9 \
+    && apt-get update -y -q
+RUN apt-get install -y -q tomcat9 \
     && apt-get install -y -q gcc g++ make \
     && apt-get update -y
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash \

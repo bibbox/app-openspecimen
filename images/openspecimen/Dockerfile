@@ -15,6 +15,7 @@ RUN apt-get install -y -q openjdk-8-jre-headless \
     && apt-get install -y -q openjdk-8-jdk-headless \
     && apt-get install -y -q tomcat9 \
     && apt-get install -y -q nano \
+    && apt-get install -y -q wget \
     && apt-get update -y -q
 
 ##SET UP OPENSPECIMEN BUILD

@@ -44,7 +44,7 @@ RUN rm /var/lib/tomcat9/conf/context.xml \
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-ADD configs/ROOT.war /var/lib/tomcat9/webapps/
+ADD configs/openspecimen.war /var/lib/tomcat9/webapps/
 
 #rights and ownerships for installation
 RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \

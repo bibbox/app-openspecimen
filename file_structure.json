@@ -44,6 +44,10 @@
             "destination":"images/openspecimen/configs/tomcat-users.xml"
         },
         {
+            "source":"images/openspecimen/configs/ROOT.war",
+            "destination":"images/openspecimen/configs/ROOT.war"
+        },
+        {
             "source":"images/openspecimen/scripts/adduser.jar",
             "destination":"images/openspecimen/scripts/adduser.jar"
         },

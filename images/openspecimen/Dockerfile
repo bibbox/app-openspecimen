@@ -17,8 +17,6 @@ RUN apt-get install -y -q openjdk-8-jre-headless \
     && apt-get install -y -q nano \
     && apt-get update -y -q
 
-
-
 ##SET UP OPENSPECIMEN BUILD
 #ENVIRONMENT
 ENV JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/" 

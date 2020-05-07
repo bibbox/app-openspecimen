@@ -11,34 +11,13 @@ RUN apt-get update -y -q \
 
 ## INSTALL DEPENDENCIES
 # apt install
-RUN apt-get install -y -q software-properties-common \
-    && apt-get install -y -q wget \
-    && apt-get install -y -q gnupg \
-    && apt-get install -y -q apt-transport-https \
-    && apt-get install -y -q ca-certificates\
-    && apt-get install -y -q curl \
-    && apt-get install -y -q dirmngr \
-    && apt-get install -y -q openjdk-8-jre-headless \
+RUN apt-get install -y -q openjdk-8-jre-headless \
     && apt-get install -y -q openjdk-8-jdk-headless \
-    && apt-get update -y -q
-RUN apt-get install -y -q tomcat9 \
-    && apt-get install -y -q gcc g++ make \
-    && apt-get update -y
-RUN curl -sL https://deb.nodesource.com/setup_10.x | bash \
-    && apt-get update -y \
-    && apt-get upgrade -y \
-    && apt install -y -q nodejs \
-    && node -v \
-    && apt-get install -y -q gradle \
-    && apt-get install -y -q git \
+    && apt-get install -y -q tomcat9 \
     && apt-get install -y -q nano \
-    && apt-get install -y -q gawk \
-    && apt-get update
+    && apt-get update -y -q
 
-#npm install
-RUN npm install bower -g \
-    && npm install grunt-cli -g --save-dev \
-    && npm install gulp-cli -g 
+
 
 ##SET UP OPENSPECIMEN BUILD
 #ENVIRONMENT
@@ -54,28 +33,20 @@ RUN mkdir "/var/lib/openspecimen" \
     && mkdir "/var/lib/openspecimen/data" \
     && mkdir "/var/lib/openspecimen/plugins" \
     && mkdir "/etc/systemd/system/tomcat9.service.d" \
-    && mkdir "/tmp/openspecimen" \
     && mkdir "/var/lib/tomcat9/temp"
 
 #MYSQL-Connector
-RUN cd /var/lib/tomcat9/lib \
+RUN cd /usr/share/tomcat9/lib \
     wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar
 
-#git openspecimen
-RUN cd /tmp/openspecimen \
-    && git clone https://github.com/krishagni/openspecimen.git .
 
 #properties & config-files
-RUN rm /tmp/openspecimen/build.properties \
-    && rm /var/lib/tomcat9/conf/context.xml \
+RUN rm /var/lib/tomcat9/conf/context.xml \
     && rm /var/lib/tomcat9/conf/tomcat-users.xml
-ADD configs/build.properties /tmp/openspecimen/
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-ADD configs/package.json /tmp/openspecimen/www/
-
-
+ADD configs/ROOT.war /var/lib/tomcat9/webapps/
 
 #rights and ownerships for installation
 RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
@@ -99,17 +70,6 @@ RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
 #    "grunt-contrib-watch": "^0.6.1", \
 #    "grunt-filerev": "^2.1.1", \
 #    EOF)apt" | patch
-
-# npm bower install
-RUN cd /tmp/openspecimen/www \
-    && npm install --loglevel=error --force-latest \
-    && bower install --allow-root --stacktrace
-
-
-#gradle build
-RUN cd /tmp/openspecimen \
-    && sed -i -e 's#mavenCentral()#maven { url "https://repo.maven.apache.org/maven2" }#g' build.gradle \
-    && gradle deploy
 
 #CSet up OS
 RUN sed -i -r 's/^(JAVA_OPTS=.*)"/\1 -Xmx2048m"/' "/etc/default/tomcat9"

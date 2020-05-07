@@ -35,7 +35,7 @@ RUN mkdir "/var/lib/openspecimen" \
 
 #MYSQL-Connector
 RUN cd /usr/share/tomcat9/lib \
-    wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar
+    && wget https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar
 
 
 #properties & config-files

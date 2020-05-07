@@ -22,3 +22,4 @@
 ## Installation Instructions 
 
 * start your application in the dashboard
+* you have to add /openspecimen to the URL

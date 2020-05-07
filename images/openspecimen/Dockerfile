@@ -73,6 +73,7 @@ ADD configs/build.properties /tmp/openspecimen/
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
+ADD configs/package.json /tmp/openspecimen/www/
 
 
 

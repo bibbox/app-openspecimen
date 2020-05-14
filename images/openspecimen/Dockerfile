@@ -45,7 +45,7 @@ RUN rm /var/lib/tomcat9/conf/context.xml \
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-ADD configs/openspecimen.war /var/lib/tomcat9/webapps/
+
 
 #rights and ownerships for installation
 RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
@@ -60,6 +60,8 @@ RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/sys
 #    && rm -rf /var/lib/tomcat9/webapps/ROOT 
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
+
+ADD configs/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war
 
 ADD scripts /opt/scripts
 WORKDIR /opt/scripts

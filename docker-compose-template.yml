@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen:latest
+    image: bibbox/openspecimen:v7-0-x
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:
@@ -56,6 +56,6 @@ services:
     image: busybox
     container_name: §§INSTANCE-openspecimen-data
     volumes:
-      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
       - ./data/os-data:/opt/openspecimen/os-data
       - ./data/os-plugins:/opt/openspecimen/os-plugins

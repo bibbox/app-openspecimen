@@ -53,9 +53,10 @@ RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
 
 #CSet up OS
 RUN sed -i -r 's/^(JAVA_OPTS=.*)"/\1 -Xmx2048m"/' "/etc/default/tomcat9"
-RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" 
-#    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war \
-#    && rm -rf /var/lib/tomcat9/webapps/ROOT 
+RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" \
+    && rm -rf /var/lib/tomcat9/webapps/ROOT \
+    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war
+#     
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 

@@ -46,6 +46,9 @@ ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.war /var/lib/tomcat9/webapps/
+ADD configs/openspecimen.cnf /etc/mysql/conf.d/
+
+RUN chmod 0444 /etc/mysql/conf.d/openspecimen.cnf
 
 #rights and ownerships for installation
 RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \

@@ -53,23 +53,6 @@ RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
 #RUN chmod -R 777 "/var/lib/openspecimen" \
 #    && chmod -R 777 "/var/lib/tomcat9/conf/openspecimen.properties"
 
-##BUILD OPENSPECIMEN
-#JSON PATCH
-
-#RUN echo "$(cat <<EOF \
-#    --- package.json        2019-07-17 15:14:00.419021754 +0000 \
-#    +++ package.json.new    2019-07-18 04:27:36.961700752 +0000 \
-#    @@ -34,7 +34,7 @@ \
-#    "grunt-contrib-copy": "^0.7.0", \
-#    "grunt-contrib-cssmin": "^0.10.0", \
-#    "grunt-contrib-htmlmin": "^0.3.0", \
-#    - "grunt-contrib-imagemin": "0.9.1", \
-#    + "grunt-contrib-imagemin": "^1.0.0", \
-#    "grunt-contrib-uglify": "^0.6.0", \
-#    "grunt-contrib-watch": "^0.6.1", \
-#    "grunt-filerev": "^2.1.1", \
-#    EOF)apt" | patch
-
 #CSet up OS
 RUN sed -i -r 's/^(JAVA_OPTS=.*)"/\1 -Xmx2048m"/' "/etc/default/tomcat9"
 RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" 

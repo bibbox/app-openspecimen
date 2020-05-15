@@ -60,8 +60,9 @@ RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/sys
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 
-ADD configs/openspecimen.war /var/lib/tomcat9/webapps/
 RUN rm -rf /var/lib/tomcat9/webapps/ROOT/
+ADD configs/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war
+
 
 ADD scripts /opt/scripts
 WORKDIR /opt/scripts

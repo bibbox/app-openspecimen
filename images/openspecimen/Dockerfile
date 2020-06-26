@@ -2,7 +2,7 @@
  
 FROM ubuntu:18.04
 ARG DEBIAN_FRONTEND=noninteractive
-ARG VERSION="v6.3.x"
+ARG VERSION="v7.0.x"
 
 # update system
 RUN apt-get update -y -q \
@@ -50,19 +50,20 @@ ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
 #rights and ownerships for installation
 RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
     && chown -R tomcat:tomcat "/var/lib/tomcat9/conf/openspecimen.properties"
-#RUN chmod -R 777 "/var/lib/openspecimen" \
-#    && chmod -R 777 "/var/lib/tomcat9/conf/openspecimen.properties"
 
 #CSet up OS
 RUN sed -i -r 's/^(JAVA_OPTS=.*)"/\1 -Xmx2048m"/' "/etc/default/tomcat9"
-RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf" 
-#    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war \
-#    && rm -rf /var/lib/tomcat9/webapps/ROOT 
+RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/systemd/system/tomcat9.service.d/openspecimen.conf"
+#    && rm -rf /var/lib/tomcat9/webapps/ROOT \
+#    && mv /var/lib/tomcat9/webapps/openspecimen.war /var/lib/tomcat9/webapps/ROOT.war
+#     
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 
+
 ADD configs/openspecimen.war /var/lib/tomcat9/webapps/openspecimen.war
-#RUN rm -rf /var/lib/tomcat9/webapps/ROOT
+
+
 
 ADD scripts /opt/scripts
 WORKDIR /opt/scripts

@@ -1,8 +1,8 @@
 {
-	"name": "OpenSpecimen v.6.3.x",
+	"name": "OpenSpecimen v7.0.x",
 	"short_name": "OpenSpecimen",
-	"version": "v6.3.x",
-	"description": "OpenSpecimen Version 6.3.x",
+	"version": "v7.0.x",
+	"description": "OpenSpecimen Version 7.0.x",
 	"catalogue_url": "http://biobankapps.com/software/view?id=26",
 	"application_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/1115878/End+User+Training",
 	"tags": ["Sample Management", "BIMS"],

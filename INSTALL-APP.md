@@ -4,7 +4,7 @@
 * Wait for installation to finish
 * After installation in BIBBOX, Open Specimen will take some minutes to set up internally
 * Start the application from BIBBOX application screen
-* Log into Open Specimen with user "bibboxadmin" and password "Login!@3"
+* Log into Open Specimen with user "admin" and password "Login@123"
 
 ![Screenshot01](screen-1.png)
 

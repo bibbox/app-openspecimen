@@ -3,7 +3,8 @@
 ## Hints
 * approx. time with medium fast internet connection: **20 minutes**
 * level: advanced
-* initial passwordd: ** Login!@3 **
+* initial user: ** admin **
+* initial passwordd: ** Login@123 **
 
 ## Docker Images Used 
  * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container

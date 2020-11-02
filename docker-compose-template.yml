@@ -57,6 +57,6 @@ services:
     container_name: §§INSTANCE-openspecimen-data
     volumes:
       - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
-      - ./data/os-data:/opt/openspecimen/os-data
-      - ./data/os-plugins:/opt/openspecimen/os-plugins
+      - ./data/os-data:/var/lib/openspecimen/os-data
+      - ./data/os-plugins:/var/lib/openspecimen/os-plugins
       - ./data/mysql:/var/lib/mysql

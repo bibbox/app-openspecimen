@@ -60,4 +60,4 @@ services:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
       - ./data/mysql:/var/lib/mysql
-      - ./ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./ROOT:/var/lib/tomcat9/webapps/ROOT #quick and dirty remove as soon as Docker Container gets rebuild (ADD in Dockerfile)

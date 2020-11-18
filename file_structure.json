@@ -4,7 +4,9 @@
         "var/app-data",
         "images/openspecimen",
         "images/openspecimen/configs",
-        "images/openspecimen/scripts"
+        "images/openspecimen/scripts",
+	"ROOT/META-INF",
+	"ROOT/WEB-INF"
     ],
     "copyfiles":[
         {
@@ -58,7 +60,24 @@
         {
             "source":"images/openspecimen/scripts/waitforit.sh",
             "destination":"images/openspecimen/scripts/waitforit.sh"
+        },
+	{
+            "source":"ROOT/index.html",
+            "destination":"ROOT/index.html"
+        },
+	{
+            "source":"ROOT/index.jsp",
+            "destination":"ROOT/index.jsp"
+        },
+	{
+            "source":"ROOT/META-INF/context.xml",
+            "destination":"ROOT/META-INF/context.xml"
+        },
+	{
+            "source":"ROOT/WEB-INF/web.xml",
+            "destination":"ROOT/WEB-INF/web.xml"
         }
+	
     ]
 }
     

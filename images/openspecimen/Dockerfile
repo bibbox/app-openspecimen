@@ -45,7 +45,7 @@ RUN rm /var/lib/tomcat9/conf/context.xml \
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-ADD ROOT ADD /var/lib/tomcat9/webapps/
+ADD ROOT ADD /var/lib/tomcat9/webapps/ROOT
 
 
 #rights and ownerships for installation

@@ -2,7 +2,7 @@
  
 FROM ubuntu:18.04
 ARG DEBIAN_FRONTEND=noninteractive
-ARG VERSION="v7.1.x"
+ARG VERSION="v7.2.x"
 
 # update system
 RUN apt-get update -y -q \

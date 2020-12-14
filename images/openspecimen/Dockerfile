@@ -63,8 +63,7 @@ RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 
 
 ADD configs/openspecimen.war /var/lib/tomcat9/webapps/openspecimen.war
-
-
+ADD configs/os-miabis-1.0.0.jar /var/lib/openspecimen/plugins/
 
 ADD scripts /opt/scripts
 WORKDIR /opt/scripts

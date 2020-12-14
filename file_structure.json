@@ -5,8 +5,8 @@
         "images/openspecimen",
         "images/openspecimen/configs",
         "images/openspecimen/scripts",
-	"ROOT/META-INF",
-	"ROOT/WEB-INF"
+	"images/openspecimen/ROOT/META-INF",
+	"images/openspecimen/ROOT/WEB-INF"
     ],
     "copyfiles":[
         {
@@ -62,20 +62,20 @@
             "destination":"images/openspecimen/scripts/waitforit.sh"
         },
 	{
-            "source":"ROOT/index.html",
-            "destination":"ROOT/index.html"
+            "source":"images/openspecimen/ROOT/index.html",
+            "destination":"images/openspecimen/ROOT/index.html"
         },
 	{
-            "source":"ROOT/index.jsp",
-            "destination":"ROOT/index.jsp"
+            "source":"images/openspecimen/ROOT/index.jsp",
+            "destination":"images/openspecimen/ROOT/index.jsp"
         },
 	{
             "source":"ROOT/META-INF/context.xml",
-            "destination":"ROOT/META-INF/context.xml"
+            "destination":"images/openspecimen/ROOT/META-INF/context.xml"
         },
 	{
-            "source":"ROOT/WEB-INF/web.xml",
-            "destination":"ROOT/WEB-INF/web.xml"
+            "source":"images/openspecimen/ROOT/WEB-INF/web.xml",
+            "destination":"images/openspecimen/ROOT/WEB-INF/web.xml"
         }
 	
     ]

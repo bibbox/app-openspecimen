@@ -45,7 +45,7 @@ RUN rm /var/lib/tomcat9/conf/context.xml \
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-ADD ROOT /var/lib/tomcat9/webapps/ROOT
+ADD ROOT /var/lib/tomcat9/webapps/ROOT/
 
 
 #rights and ownerships for installation
@@ -62,7 +62,7 @@ RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/sys
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 
 ADD configs/openspecimen.war /var/lib/tomcat9/webapps/openspecimen.war
-ADD configs/os-miabis-1.0.0.jar /var/lib/openspecimen/plugins/
+ADD configs/os-miabis-1.0.0.jar /var/lib/openspecimen/plugins/os-miabis-1.0.0.jar
 
 ADD scripts /opt/scripts
 WORKDIR /opt/scripts

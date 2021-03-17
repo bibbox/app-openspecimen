@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen:v6-3-x
+    image: bibbox/openspecimen:v7-2-x
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:
@@ -60,3 +60,7 @@ services:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
       - ./data/mysql:/var/lib/mysql
+      - ./images/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./images/openspecimen/configs/os-miabis-1.0.0.jar:/var/lib/openspecimen/plugins/os-miabis-1.0.0.jar 
+      
+      #quick and dirty remove as soon as Docker Container gets rebuild (ADD in Dockerfile)

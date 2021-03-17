@@ -2,7 +2,7 @@
  
 FROM ubuntu:18.04
 ARG DEBIAN_FRONTEND=noninteractive
-ARG VERSION="v7.0.x"
+ARG VERSION="v7.2.x"
 
 # update system
 RUN apt-get update -y -q \
@@ -45,7 +45,7 @@ RUN rm /var/lib/tomcat9/conf/context.xml \
 ADD configs/context.xml /var/lib/tomcat9/conf/
 ADD configs/openspecimen.properties /var/lib/tomcat9/conf/
 ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
-
+ADD configs/tomcat-users.xml /var/lib/tomcat9/conf/
 
 #rights and ownerships for installation
 RUN chown -R tomcat:tomcat "/var/lib/openspecimen" \
@@ -60,10 +60,7 @@ RUN printf "[Service]\n%s\n" "ReadWritePaths=/var/lib/openspecimen/" > "/etc/sys
 
 RUN echo 'export PS1="[\u@openspecimen:\w]# "' >> /root/.bashrc
 
-
 ADD configs/openspecimen.war /var/lib/tomcat9/webapps/openspecimen.war
-
-
 
 ADD scripts /opt/scripts
 WORKDIR /opt/scripts

@@ -3,6 +3,7 @@
 ## Hints
 * approx. time with medium fast internet connection: **20 minutes**
 * level: advanced
+* initial user: ** admin **
 * initial passwordd: ** Login@123 **
 
 ## Docker Images Used 
@@ -22,4 +23,8 @@
 ## Installation Instructions 
 
 * start your application in the dashboard
-* you have to add /openspecimen to the URL
+
+## Local Installation
+
+* run **docker-compose up** in the root folder of the project. After a few minutes OpenSpecimen is reachable via **http://localhost:9000/openspecimen** .
+* This can be changed in **docker-compose.yml**.

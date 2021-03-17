@@ -1,0 +1,61 @@
+version: '2'
+
+networks:
+    bibbox-default-network:
+      external: true
+
+services:
+
+  openspecimen-web:
+    image: bibbox/openspecimen:v6-3-x
+    container_name: openspecimen-web
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    links:
+      - openspecimen-db:openspecimen-db
+    ports:
+      - "9000:8080"
+    environment:
+      - DATABASE_HOST=openspecimen-db
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+      - TOMCAT_MANAGER_USER=openspecimen
+      - TOMCAT_MANAGER_PASSWORD=openspecimen
+      - INSTITUTE_NAME=Biobank Institute
+      - EMAIL_ADRESS=email@address.com
+      - FIRST_NAME=System
+      - LAST_NAME=Administrator
+      - LOGIN_NAME=admin
+    depends_on:
+      - openspecimen-db
+      - openspecimen-data
+    volumes_from: 
+      - openspecimen-data
+
+  openspecimen-db:
+    image: mysql:5.7
+    container_name: openspecimen-db
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes_from: 
+      - openspecimen-data
+    depends_on:
+      - openspecimen-data
+
+  openspecimen-data:
+    image: busybox
+    container_name: openspecimen-data
+    volumes:
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
+      - ./data/os-data:/var/lib/openspecimen/data
+      - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./data/mysql:/var/lib/mysql

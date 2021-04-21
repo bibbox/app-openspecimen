@@ -7,7 +7,7 @@ networks:
 services:
 
   openspecimen-web:
-    image: bibbox/openspecimen:v6-3-x
+    image: bibbox/openspecimen:v8-0-x
     container_name: openspecimen-web
     restart: unless-stopped
     networks:

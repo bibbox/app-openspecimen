@@ -1,0 +1,66 @@
+version: '2'
+
+networks:
+    bibbox-default-network:
+      external: true
+
+services:
+
+  §§INSTANCE-openspecimen-web:
+    image: bibbox/openspecimen:v8-0-x
+    container_name: §§INSTANCE-openspecimen-web
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    links:
+      - §§INSTANCE-openspecimen-db:openspecimen-db
+    ports:
+      - "§§PORT1:8080"
+    environment:
+      - DATABASE_HOST=openspecimen-db
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+      - TOMCAT_MANAGER_USER=§§TOMCAT_MANAGER_USER
+      - TOMCAT_MANAGER_PASSWORD=§§TOMCAT_MANAGER_PASSWORD
+      - INSTITUTE_NAME=§§INSTITUTE_NAME
+      - EMAIL_ADRESS=§§EMAIL_ADRESS
+      - FIRST_NAME=§§FIRST_NAME
+      - LAST_NAME=§§LAST_NAME
+      - LOGIN_NAME=§§LOGIN_NAME
+      - ADRESS=§§ADRESS
+    depends_on:
+      - §§INSTANCE-openspecimen-db
+      - §§INSTANCE-openspecimen-data
+    volumes_from: 
+      - §§INSTANCE-openspecimen-data
+
+  §§INSTANCE-openspecimen-db:
+    image: mysql:5.7
+    container_name: §§INSTANCE-openspecimen-db
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes_from: 
+      - §§INSTANCE-openspecimen-data
+    depends_on:
+      - §§INSTANCE-openspecimen-data
+
+  §§INSTANCE-openspecimen-data:
+    image: busybox
+    container_name: §§INSTANCE-openspecimen-data
+    volumes:
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
+      - ./data/os-data:/var/lib/openspecimen/data
+      - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./data/mysql:/var/lib/mysql
+      - ./images/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./images/openspecimen/configs/os-miabis-1.0.0.jar:/var/lib/openspecimen/plugins/os-miabis-1.0.0.jar 
+      
+      #quick and dirty remove as soon as Docker Container gets rebuild (ADD in Dockerfile)

@@ -1,4 +1,0 @@
-{
-  runningcontainers:["§§INSTANCE-openspecimen-web", "§§INSTANCE-openspecimen-db"],
-  supportcontainers:["§§INSTANCE-openspecimen-data"]    
-}

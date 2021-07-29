@@ -28,3 +28,4 @@
 
 * run **docker-compose up** in the root folder of the project. After a few minutes OpenSpecimen is reachable via **http://localhost:9000/openspecimen** .
 * This can be changed in **docker-compose.yml**.
+* the permission of the folder ./data hast to be changed.

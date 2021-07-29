@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 networks:
     bibbox-default-network:
@@ -13,9 +13,7 @@ services:
     networks:
       - bibbox-default-network
     links:
-      - §§INSTANCE-openspecimen-db:openspecimen-db
-    ports:
-      - "§§PORT1:8080"
+      - §§INSTANCE-openspecimen-db:§§INSTANCE-openspecimen-db
     environment:
       - DATABASE_HOST=openspecimen-db
       - MYSQL_ROOT_PASSWORD=openspecimen
@@ -29,12 +27,21 @@ services:
       - FIRST_NAME=§§FIRST_NAME
       - LAST_NAME=§§LAST_NAME
       - LOGIN_NAME=§§LOGIN_NAME
-      - ADRESS=§§ADRESS
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX:  §§INSTANCE
+     TEMPLATE: default
+     DISPLAYNAME: 'Openspecimen'
+       
+     
     depends_on:
       - §§INSTANCE-openspecimen-db
-      - §§INSTANCE-openspecimen-data
-    volumes_from: 
-      - §§INSTANCE-openspecimen-data
+    volumes:
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
+      - ./data/os-data:/var/lib/openspecimen/data
+      - ./data/os-plugins:/var/lib/openspecimen/plugins
+    ports:
+      - "9000:8080"
 
   §§INSTANCE-openspecimen-db:
     image: mysql:5.7
@@ -45,22 +52,4 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
-      - MYSQL_USER=openspecimen
-      - MYSQL_PASSWORD=openspecimen
-    volumes_from: 
-      - §§INSTANCE-openspecimen-data
-    depends_on:
-      - §§INSTANCE-openspecimen-data
 
-  §§INSTANCE-openspecimen-data:
-    image: busybox
-    container_name: §§INSTANCE-openspecimen-data
-    volumes:
-      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
-      - ./data/os-data:/var/lib/openspecimen/data
-      - ./data/os-plugins:/var/lib/openspecimen/plugins
-      - ./data/mysql:/var/lib/mysql
-      - ./images/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
-      - ./images/openspecimen/configs/os-miabis-1.0.0.jar:/var/lib/openspecimen/plugins/os-miabis-1.0.0.jar 
-      
-      #quick and dirty remove as soon as Docker Container gets rebuild (ADD in Dockerfile)

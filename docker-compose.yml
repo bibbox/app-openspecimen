@@ -6,52 +6,46 @@ networks:
 
 services:
 
-  openspecimen-web2:
+  local-openspecimen-web:
     image: bibbox/openspecimen:v8-0-x
-    container_name: openspecimen-web2
+    container_name: local-openspecimen-web
     restart: unless-stopped
     networks:
       - bibbox-default-network
     links:
-      - openspecimen-db2:openspecimen-db2
+      - local-openspecimen-db:local-openspecimen-db
     environment:
-      - DATABASE_HOST=openspecimen-db2
+      - DATABASE_HOST=openspecimen-db
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
-      - TOMCAT_MANAGER_USER=openspecimen
-      - TOMCAT_MANAGER_PASSWORD=openspecimen
-      - INSTITUTE_NAME=Biobank Institute
-      - EMAIL_ADRESS=email@address.com
-      - FIRST_NAME=System
-      - LAST_NAME=Administrator
-      - LOGIN_NAME=admin
-
-#    proxy:
-#     TYPE: PRIMARY
-#     URLPREFIX:  §§INSTANCE
-#     TEMPLATE: default
-#     DISPLAYNAME: 'OPenspecimen'
+      - TOMCAT_MANAGER_USER=admin
+      - TOMCAT_MANAGER_PASSWORD=Login@123
+      - INSTITUTE_NAME=BIBBOX Demo Biobank
+      - EMAIL_ADRESS="admin@bibbox.org"
+      - FIRST_NAME=admin
+      - LAST_NAME=Bibbox
+      - LOGIN_NAME=bibboxadmin
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX:  local
+     TEMPLATE: default
+     DISPLAYNAME: 'Openspecimen'
        
-#       - id": "§§PORT1",
-#       - url": "§§INSTANCE",
-#       - protocol": "HTTP",
-#       - proxy" : "PRIMARY"
-
-      
+     
     depends_on:
-      - openspecimen-db2
+      - local-openspecimen-db
     volumes:
       - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
     ports:
-      - "9009:8080"
+      - "9000:8080"
 
-  openspecimen-db2:
+  local-openspecimen-db:
     image: mysql:5.7
-    container_name: openspecimen-db2
+    container_name: local-openspecimen-db
     restart: unless-stopped
     networks:
       - bibbox-default-network

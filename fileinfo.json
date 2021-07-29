@@ -1,0 +1,8 @@
+
+{
+	"environment_replace": {},
+	"script_replace": [],
+	"permissions": {
+		"assets": 777
+	}
+}

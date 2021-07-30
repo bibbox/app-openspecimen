@@ -52,4 +52,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes:
+      - ./data/mysql:/var/lib/mysql
 

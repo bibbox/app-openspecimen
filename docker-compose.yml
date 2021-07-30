@@ -13,15 +13,15 @@ services:
     networks:
       - bibbox-default-network
     links:
-      - local-openspecimen-db:local-openspecimen-db
+      - local-openspecimen-db:openspecimen-db
     environment:
       - DATABASE_HOST=openspecimen-db
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
-      - TOMCAT_MANAGER_USER=admin
-      - TOMCAT_MANAGER_PASSWORD=Login@123
+      - TOMCAT_MANAGER_USER=openspecimen
+      - TOMCAT_MANAGER_PASSWORD=openspecimen
       - INSTITUTE_NAME=BIBBOX Demo Biobank
       - EMAIL_ADRESS="admin@bibbox.org"
       - FIRST_NAME=admin
@@ -52,5 +52,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
-
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes:
+      - ./data/mysql:/var/lib/mysql
 

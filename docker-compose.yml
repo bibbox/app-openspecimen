@@ -6,6 +6,22 @@ networks:
 
 services:
 
+  local-openspecimen-db:
+    image: mysql:8.0
+    container_name: local-openspecimen-db
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf #read only
+
+
   local-openspecimen-web:
     image: bibbox/openspecimen:v8-0-x
     container_name: local-openspecimen-web
@@ -26,34 +42,11 @@ services:
       - EMAIL_ADRESS="admin@bibbox.org"
       - FIRST_NAME=admin
       - LAST_NAME=Bibbox
-      - LOGIN_NAME=bibboxadmin
-    proxy:
-     TYPE: PRIMARY
-     URLPREFIX:  local
-     TEMPLATE: default
-     DISPLAYNAME: 'Openspecimen'
-       
-     
+      - LOGIN_NAME=bibboxadmin  
     depends_on:
       - local-openspecimen-db
     volumes:
-      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
     ports:
       - "9000:8080"
-
-  local-openspecimen-db:
-    image: mysql:5.7
-    container_name: local-openspecimen-db
-    restart: unless-stopped
-    networks:
-      - bibbox-default-network
-    environment:
-      - MYSQL_ROOT_PASSWORD=openspecimen
-      - MYSQL_DATABASE=openspecimen
-      - MYSQL_USER=openspecimen
-      - MYSQL_PASSWORD=openspecimen
-    volumes:
-      - ./data/mysql:/var/lib/mysql
-

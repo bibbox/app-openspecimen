@@ -20,6 +20,8 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro
+    cap_add:
+      - SYS_NICE
       
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen:v8-0-x

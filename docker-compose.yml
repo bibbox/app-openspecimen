@@ -7,7 +7,8 @@ networks:
 services:
 
   local-openspecimen-db:
-    image: mysql:8.0
+    image: mysql:5.7
+#    image: mysql:8.0
     container_name: local-openspecimen-db
     restart: unless-stopped
     networks:

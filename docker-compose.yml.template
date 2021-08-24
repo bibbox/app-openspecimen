@@ -7,7 +7,7 @@ networks:
 services:
 
   §§INSTANCE-openspecimen-db:
-    image: mysql:8.0
+    image: mysql:8.0.15
     container_name: §§INSTANCE-openspecimen-db
     restart: unless-stopped
     networks:
@@ -20,8 +20,6 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro
-    cap_add:
-      - SYS_NICE
       
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen:v8-0-x
@@ -37,8 +35,6 @@ services:
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
-      - TOMCAT_MANAGER_USER=§§TOMCAT_MANAGER_USER
-      - TOMCAT_MANAGER_PASSWORD=§§TOMCAT_MANAGER_PASSWORD
       - INSTITUTE_NAME=§§INSTITUTE_NAME
       - EMAIL_ADRESS=§§EMAIL_ADRESS
       - FIRST_NAME=§§FIRST_NAME
@@ -54,5 +50,6 @@ services:
     volumes:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./images/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
     ports:
       - "9000:8080"

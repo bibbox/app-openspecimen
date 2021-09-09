@@ -20,7 +20,10 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only
-
+      - ./data/mysql/db_settings/:/docker-entrypoint-initdb.d/setting.sql 
+    cap_add:
+      - SYS_NICE 
+      
   local-openspecimen-web:
     image: bibbox/openspecimen:v8-0-x
     container_name: local-openspecimen-web
@@ -35,7 +38,7 @@ services:
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
-      - INSTITUTE_NAME=BIBBOX Demo Biobank
+      - INSTITUTE_NAME=BIBBOX_Demo_Biobank
       - EMAIL_ADRESS="admin@bibbox.org"
       - FIRST_NAME=admin
       - LAST_NAME=Bibbox

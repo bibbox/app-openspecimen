@@ -1,31 +1,18 @@
-# OPENSPECIMEN BIBBOX application
+# OPENSPECIMEN BIBBOX(V4) application
 
 ## Hints
-* approx. time with medium fast internet connection: **20 minutes**
-* level: advanced
+* approx. time with medium fast internet connection: **5 minutes**
 * initial user: ** admin **
-* initial passwordd: ** Login@123 **
+* initial password: ** Login@123 **
 
 ## Docker Images Used 
  * [mySQL](https://hub.docker.com/_/mysql/), offical mySQL container
- * [busybox](https://hub.docker.com/_/busybox/), offical data container
+ * [openspecimen](https://hub.docker.com/r/bibbox/openspecimen/tags)
  
-## Install Environment Variables
-  *	MYSQL_ROOT_PASSWORD = password, only used within the docker container
-  * MYSQL_DATABASE = name of the mysql database, typical *phenotips*. The DB file is stored in the mounted volume
-  * MYSQL_USER = name of the mysql user, typical *phenotips*
-  * MYSQL_PASSWORD = mysql user password, only used within the docker container
-
-## Mounted Volumes
-
-* the mysql datafolder _/var/mysql_ will be mounted to _/opt/apps/INSTANCE_NAME/var/mysql_ in your BIBBOX kit 
-
-## Installation Instructions 
-
-* start your application in the dashboard
+* this version is compatible with your local BiBBOX(V4)-kit and is also installable in the Store on http://silicolabv4.bibbox.org/
+* the local installation uses the **docker-compose.yml**, for the global installation the **docker-compose.yml.template** is considered.
 
 ## Local Installation
+* simply run **docker-compose up** in the root folder of the project. After a few minutes OpenSpecimen is reachable via **http://localhost:9000/openspecimen** .
+* The port and default Environment variables for the used containers are set within the **docker-compose.yml** and can be adapted if desired.
 
-* run **docker-compose up** in the root folder of the project. After a few minutes OpenSpecimen is reachable via **http://localhost:9000/openspecimen** .
-* This can be changed in **docker-compose.yml**.
-* the permission of the folder ./data hast to be changed.

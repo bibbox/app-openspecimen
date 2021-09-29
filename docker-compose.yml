@@ -19,7 +19,7 @@ services:
       - MYSQL_PASSWORD=openspecimen
     volumes:
       - ./data/mysql:/var/lib/mysql
-      - ./images/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only 
+      - ./configs/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only 
     cap_add:
       - SYS_NICE 
       
@@ -47,6 +47,6 @@ services:
     volumes:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
-      - ./images/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
     ports:
       - "9000:8080"

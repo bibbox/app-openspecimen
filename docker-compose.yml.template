@@ -1,0 +1,55 @@
+version: '3'
+
+networks:
+    bibbox-default-network:
+      external: true
+
+services:
+
+  §§INSTANCE-openspecimen-db:
+    image: mysql:8.0.26
+    container_name: §§INSTANCE-openspecimen-db
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    environment:
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+      - ./configs/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro
+     
+  §§INSTANCE-openspecimen-web:
+    image: bibbox/openspecimen:v8-0-x
+    container_name: §§INSTANCE-openspecimen-web
+    restart: unless-stopped
+    networks:
+      - bibbox-default-network
+    links:
+      - §§INSTANCE-openspecimen-db:openspecimen-db
+    environment:
+      - DATABASE_HOST=openspecimen-db
+      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_DATABASE=openspecimen
+      - MYSQL_USER=openspecimen
+      - MYSQL_PASSWORD=openspecimen
+      - INSTITUTE_NAME=§§INSTITUTE_NAME
+      - EMAIL_ADRESS=§§EMAIL_ADRESS
+      - FIRST_NAME=§§FIRST_NAME
+      - LAST_NAME=§§LAST_NAME
+      - LOGIN_NAME=§§LOGIN_NAME
+    proxy:
+     TYPE: PRIMARY
+     URLPREFIX: §§INSTANCE
+     TEMPLATE: default
+     DISPLAYNAME: 'Openspecimen'  
+    depends_on:
+      - §§INSTANCE-openspecimen-db
+    volumes:
+      - ./data/os-data:/var/lib/openspecimen/data
+      - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+    ports:
+      - "9000:8080"

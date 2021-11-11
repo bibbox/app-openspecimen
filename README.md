@@ -1,6 +1,6 @@
 # OPENSPECIMEN BIBBOX(V4) application
 
-This container can be installed as [BIBBOX(V4) APP] https://bibbox.readthedocs.io/en/latest/installation_v4_apps/ "BIBBOX App Store") or standalone. 
+This container can be installed as [BIBBOX(V4) APP] https://bibbox.readthedocs.io/en/latest/installation_v4_apps/ or standalone. 
 * the standalone installation uses the **docker-compose.yml**, for the installation as a BIBBOX(V4) APP the **docker-compose.yml.template** is considered.
 
 
@@ -56,7 +56,6 @@ SELECT * from DATABASECHANGELOGLOCK;
 
 UPDATE DATABASECHANGELOGLOCK SET LOCKED=FALSE, LOCKGRANTED=null, LOCKEDBY=null where ID=1;
 
-exit
 ------------------------------------------------------------------------------------------
 * and rerun **docker-compose up** in the root folder of the project.  
 

@@ -24,7 +24,7 @@ services:
       - SYS_NICE 
       
   local-openspecimen-web:
-    image: bibbox/openspecimen:v8-0-x
+    image: bibbox/openspecimen:8-1-RC8
     container_name: local-openspecimen-web
     restart: unless-stopped
     networks:

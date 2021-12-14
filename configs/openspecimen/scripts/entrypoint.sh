@@ -1,4 +1,6 @@
 #!/bin/bash
+
+python3 -m pip install /var/lib/openspecimen/plugins/OpenSpecimenAPIconnector-0.9.2-py3-none-any.whl
 echo "Starting OpenSpecimen Application!"
 
 . defaultvar.sh

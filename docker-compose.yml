@@ -48,5 +48,6 @@ services:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
       - ./configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh
     ports:
       - "9000:8080"

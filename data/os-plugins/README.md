@@ -6,6 +6,7 @@ the files need to be placed such that openspecimen can access them.
 
 For the Job to create see the example job and see https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/56492042/Jobs for general information on external jobs.
 
+![Example Job](Job.png)
 
 In the example the files are placed in "/var/lib/openspecimen/plugins/"
 

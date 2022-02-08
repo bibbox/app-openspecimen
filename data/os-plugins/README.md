@@ -2,7 +2,9 @@
 
 Files for creating an external job in Openspecimen and Extracting an BBMRI directory conform EMX file.
 
-the files need to be placed such that openspecimen can access them.
+The files need to be placed such that openspecimen can access them. The Forms corresponding to the extractor can be found here:
+
+TODO link
 
 For the Job to create see the example job and see https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/56492042/Jobs for general information on external jobs.
 
@@ -22,7 +24,7 @@ with smtplib.SMTP_SSL(<your-server-here>, 465, context=context) as server:
 
 default value is "smtp.gmail.com"
   
-Default message test can also be set within the python script see
+Default message test can also be set within the python script see:
   
 subject = "Directory Update"
 

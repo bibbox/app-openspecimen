@@ -4,7 +4,7 @@ Files for creating an external job in Openspecimen and Extracting an BBMRI direc
 
 The files need to be placed such that openspecimen can access them. The Forms corresponding to the extractor can be found here:
 
-TODO link
+https://github.com/bibbox/os-extensions/tree/master/BBMRI_Directory_Forms
 
 For the Job to create see the example job and see https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/56492042/Jobs for general information on external jobs.
 

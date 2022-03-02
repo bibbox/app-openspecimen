@@ -5,6 +5,6 @@
 	"permissions": {
 		"assets": 777,
 		"data": 777,
-		"configs": 777
+		"configs/openspecimen": 777
 	}
 }

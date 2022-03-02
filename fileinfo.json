@@ -1,9 +1,10 @@
-
 {
 	"environment_replace": {},
 	"script_replace": [],
 	"permissions": {
 		"assets": 777,
-		"data": 777
+		"data": 777,
+		"configs/openspecimen": 777
 	}
 }
+

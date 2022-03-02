@@ -19,7 +19,7 @@ services:
       - MYSQL_PASSWORD=§§MYSQL_DATABASE_PASSWORD
     volumes:
       - ./data/mysql:/var/lib/mysql
-      - ./configs/openspecimen/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro
+      - ./configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro
      
   §§INSTANCE-openspecimen-web:
     image: bibbox/openspecimen:v8-2-RC2

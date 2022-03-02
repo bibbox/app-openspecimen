@@ -13,16 +13,16 @@ services:
     networks:
       - bibbox-default-network
     environment:
-      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_ROOT_PASSWORD=thispasswordisneverusededoutsidethecontainer
       - MYSQL_DATABASE=openspecimen
-      - MYSQL_USER=openspecimen
-      - MYSQL_PASSWORD=openspecimen
+      - MYSQL_USER=§§MYSQL_DATABASE_USER
+      - MYSQL_PASSWORD=§§MYSQL_DATABASE_PASSWORD
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./configs/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro
      
   §§INSTANCE-openspecimen-web:
-    image: bibbox/openspecimen:v8-1-RC8
+    image: bibbox/openspecimen:v8-2-RC2
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
     networks:
@@ -31,15 +31,10 @@ services:
       - §§INSTANCE-openspecimen-db:openspecimen-db
     environment:
       - DATABASE_HOST=openspecimen-db
-      - MYSQL_ROOT_PASSWORD=openspecimen
+      - MYSQL_ROOT_PASSWORD=thispasswordisneverusededoutsidethecontainer
       - MYSQL_DATABASE=openspecimen
-      - MYSQL_USER=openspecimen
-      - MYSQL_PASSWORD=openspecimen
-      - INSTITUTE_NAME=§§INSTITUTE_NAME
-      - EMAIL_ADRESS=§§EMAIL_ADRESS
-      - FIRST_NAME=§§FIRST_NAME
-      - LAST_NAME=§§LAST_NAME
-      - LOGIN_NAME=§§LOGIN_NAME
+      - MYSQL_USER=§§MYSQL_DATABASE_USER
+      - MYSQL_PASSWORD=§§MYSQL_DATABASE_PASSWORD
     proxy:
      TYPE: PRIMARY
      URLPREFIX: §§INSTANCE
@@ -51,5 +46,6 @@ services:
       - ./data/os-data:/var/lib/openspecimen/data
       - ./data/os-plugins:/var/lib/openspecimen/plugins
       - ./configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
+      - ./configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh
     ports:
       - "9000:8080"

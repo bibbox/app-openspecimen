@@ -5,6 +5,8 @@ echo "Starting OpenSpecimen Application!"
 
 . defaultvar.sh
 
+sed -e "s/__DB_PW/$MYSQL_PASSWORD/g" -e "s/__DB_USER/$MYSQL_USER/g" /var/lib/tomcat9/conf/context.xml.template > /var/lib/tomcat9/conf/context.xml
+
 echo "Wait for DB server to be ready"
 /opt/scripts/waitforit.sh "${DATABASE_HOST}:${DATABASE_PORT}"
 

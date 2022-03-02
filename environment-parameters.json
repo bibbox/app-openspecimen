@@ -1,48 +1,20 @@
 [
-   {
-      "id":"INSTITUTE_NAME",
-      "display_name":"OpenSpecimen Institute",
-      "type":"text",
-      "default_value":"BIBBOX Demo Biobank",
-      "description":"Institute name in OpenSpecimen for the first user.",
-      "min_length": "1",
-      "max_length": "128"
-   },
-   {
-      "id":"EMAIL_ADRESS",
-      "display_name":"email-adress",
-      "type":"text",
-      "default_value":"admin@bibbox.org",
-      "description":"email adress of the user",
-      "min_length": "1",
-      "max_length": "128"
-   },
-   {
-      "id":"FIRST_NAME",
-      "display_name":"First name",
-      "type":"text",
-      "default_value":"admin",
-      "description":"First Name of the User",
-      "min_length": "1",
-      "max_length": "128"
-   },
-   {
-      "id":"LAST_NAME",
-      "display_name":"Last name",
-      "type":"text",
-      "default_value":"Bibbox",
-      "description":"First Name of the User",
-      "min_length": "1",
-      "max_length": "128"
-   },
-   {
-      "id":"LOGIN_NAME",
-      "display_name":"Login Name",
-      "type":"text",
-      "default_value":"bibboxadmin",
-      "description":"Login Name of the User",
-      "min_length": "1",
-      "max_length": "128"
-   }
-
-]
+	{
+	   "id":"MYSQL_DATABASE_USER",
+	   "display_name":"Name of the mysql user",
+	   "type":"text",
+	   "default_value":"Default Value",
+	   "description":"The User of the DB created for OpenSpecimen",
+	   "min_length": "1",
+	   "max_length": "128"
+	},
+	{
+	   "id":"MYSQL_DATABASE_PASSWORD",
+	   "display_name":"Password of mySQL user",
+	   "type":"password",
+	   "default_value":"Default Value",
+	   "description":"The Password of the DB User created for OpenSpecimen",
+	   "min_length": "1",
+	   "max_length": "128"
+	}
+ ]

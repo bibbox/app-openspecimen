@@ -15,11 +15,11 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=openspecimen
       - MYSQL_DATABASE=openspecimen
-      - MYSQL_USER=FRANZ
+      - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
     volumes:
       - ./data/mysql:/var/lib/mysql
-      - ./configs/openspecimen/configs/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only 
+      - ./configs/openspecimen/openspecimen.cnf:/etc/mysql/conf.d/openspecimen.cnf:ro #read only 
     cap_add:
       - SYS_NICE 
       

@@ -30,14 +30,7 @@ The following steps must be executed:
   * MYSQL_ROOT_PASSWORD = password, only used within the docker container
   * MYSQL_DATABASE = name of the mysql database, typical *openspecimen*. The DB file is stored in the mounted volume
   * MYSQL_USER = name of the mysql user, typical *openspecimen*
-  * MYSQL_PASSWORD = mysql user password used in the setup of seeddms, for testing you can stay with `seeddms4bibbox`
-  * INSTITUTE_NAME = freely selectable by the user
-  * EMAIL_ADRESS = freely selectable by the user
-  * FIRST_NAME = freely selectable by the user
-  * LAST_NAME = freely selectable by the user
-  * LOGIN_NAME = freely selectable by the user
-  * PORT = 9000
-
+  * MYSQL_PASSWORD = mysql user password used for Openspecimen DB
 
 ------------------------------------------------------------------------------------------
 ## In case the installation process reccurently shows the following information message

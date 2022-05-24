@@ -25,7 +25,7 @@ services:
     image: bibbox/openspecimen:9-0-RC2
     container_name: §§INSTANCE-openspecimen-web
     restart: unless-stopped
-    user:tomcat
+    user: tomcat
     networks:
       - bibbox-default-network
     links:

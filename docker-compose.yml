@@ -24,8 +24,9 @@ services:
       - SYS_NICE 
       
   local-openspecimen-web:
-    image: bibbox/openspecimen:v8-2-RC2
+    image: bibbox/openspecimen:9-0-RC2
     container_name: local-openspecimen-web
+    user: tomcat
     restart: unless-stopped
     networks:
       - bibbox-default-network
@@ -40,8 +41,8 @@ services:
     depends_on:
       - local-openspecimen-db
     volumes:
-      - ./data/os-data:/var/lib/openspecimen/data
-      - ./data/os-plugins:/var/lib/openspecimen/plugins
+      - ./data/os-data:/var/lib/tomcat9/openspecimen/data
+      - ./data/os-plugins:/var/lib/tomcat9/openspecimen/plugins
       - ./configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT
       - ./configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh
     ports:

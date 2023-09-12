@@ -38,6 +38,7 @@ services:
       - MYSQL_DATABASE=openspecimen
       - MYSQL_USER=openspecimen
       - MYSQL_PASSWORD=openspecimen
+      - TZ=Etc/GMT-2
     depends_on:
       - local-openspecimen-db
     volumes:

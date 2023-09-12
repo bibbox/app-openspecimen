@@ -61,4 +61,6 @@ mysql -uroot -p'openspecimen' (or your set MYSQL_ROOT_PASSWORD)
 
 update catissue_user set password = '$2a$10$GOH1.KmElP0ZusLYS6l12ejO.xAIzDUFpIm7LVz9xAcrObyvd3gLC' where identifier = 2;
 
+-------------------------------------------------------------------------------------------
 
+Set correct timezone in docker-comose.yml, otherwise dates displayed in OpenSpecimen and labels may not match. E.g. TZ=Etc/GMT-2. 

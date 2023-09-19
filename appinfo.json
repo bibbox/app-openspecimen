@@ -1,8 +1,8 @@
 {
-	"name": "OpenSpecimen v9.0.RC1",
+	"name": "OpenSpecimen v9.0.RC2",
 	"short_name": "OpenSpecimen",
-	"version": "v9.0.RC1",
-	"description": "OpenSpecimen Version 9.0.RC1",
+	"version": "v9.0.RC2",
+	"description": "OpenSpecimen Version 9.0.RC2",
 	"catalogue_url": "http://biobankapps.com/software/view?id=26",
 	"application_url": "https://www.openspecimen.org/",
 	"tags": ["Sample Management", "BIMS"],

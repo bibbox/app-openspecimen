@@ -3,7 +3,7 @@
 	   "id":"MYSQL_DATABASE_USER",
 	   "display_name":"Name of the mysql user",
 	   "type":"text",
-	   "default_value":"Default Value",
+	   "default_value":"openspecimen",
 	   "description":"The User of the DB created for OpenSpecimen",
 	   "min_length": "1",
 	   "max_length": "128"
@@ -12,7 +12,7 @@
 	   "id":"MYSQL_DATABASE_PASSWORD",
 	   "display_name":"Password of mySQL user",
 	   "type":"password",
-	   "default_value":"Default Value",
+	   "default_value":"openspecimen",
 	   "description":"The Password of the DB User created for OpenSpecimen",
 	   "min_length": "1",
 	   "max_length": "128"

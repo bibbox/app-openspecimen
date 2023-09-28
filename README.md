@@ -50,3 +50,28 @@ The default values for the standalone installation are:
   - *./configs/openspecimen/ROOT:/var/lib/tomcat9/webapps/ROOT*
   - *./configs/openspecimen/scripts/entrypoint.sh:/opt/scripts/entrypoint.sh*
 
+## In case the installation process reccurently shows the following information message
+
+INFO  liquibase.executor.jvm.JdbcExecutor- SELECT `LOCKED` FROM openspecimen.DATABASECHANGELOGLOCK WHERE ID=1
+INFO  liquibase.lockservice.StandardLockService- Waiting for changelog lock....
+
+and the installationis not proceeding, do the following:
+* Enter your mysql:8.0.26 container (Attach Shell to it) and execute the commands listed below:
+------------------------------------------------------------------------------------------
+mysql -uroot -p'openspecimen' (or your set MYSQL_ROOT_PASSWORD)
+
+USE openspecimen
+
+SELECT * from DATABASECHANGELOGLOCK;
+
+UPDATE DATABASECHANGELOGLOCK SET LOCKED=FALSE, LOCKGRANTED=null, LOCKEDBY=null where ID=1;
+
+------------------------------------------------------------------------------------------
+* and rerun **docker-compose up** in the root folder of the project.  
+
+------------------------------------------------------------------------------------------
+
+If the admin-user password runs out do the following to reset it to Login!@3:
+* Enter your mysql:8.0.26 container (Attach Shell to it) and execute the commands listed below:
+
+mysql -uroot -p'openspecimen' (or your set MYSQL_ROOT_PASSWORD)

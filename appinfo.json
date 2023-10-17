@@ -6,5 +6,6 @@
 	"catalogue_url": "http://biobankapps.com/software/view?id=26",
 	"application_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/1115878/End+User+Training",
 	"tags": ["Sample Management", "BIMS"],
-	"application_documentation_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT"
+	"application_documentation_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT",
+	"instance_information": "<p> OpenSpecimen is a highly Configurable Biospecimen Management System, which enables to track the Complete Lifecycle of your Biospecimen Inventory from Collection to Utilization. </p>"
 }

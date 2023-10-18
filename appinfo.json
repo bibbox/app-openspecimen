@@ -7,5 +7,5 @@
 	"application_url": "https://www.openspecimen.org/",
 	"tags": ["Sample Management", "BIMS"],
 	"application_documentation_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT",
-	"instance_information": "work in progress"
+	"instance_information": "<p> OpenSpecimen is a highly Configurable Biospecimen Management System, which enables to track the Complete Lifecycle of your Biospecimen Inventory from Collection to Utilization. </p>"
 }

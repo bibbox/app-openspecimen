@@ -1,11 +1,11 @@
 {
-	"name": "OpenSpecimen v8.2.RC2",
+	"name": "OpenSpecimen v9.0.RC2",
 	"short_name": "OpenSpecimen",
-	"version": "v8.2.RC2",
-	"description": "OpenSpecimen Version 8.2.RC2",
+	"version": "v9.0.RC2",
+	"description": "OpenSpecimen Version 9.0.RC2",
 	"catalogue_url": "http://biobankapps.com/software/view?id=26",
 	"application_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT/pages/1115878/End+User+Training",
 	"tags": ["Sample Management", "BIMS"],
 	"application_documentation_url": "https://openspecimen.atlassian.net/wiki/spaces/CAT",
-	"instance_information": "<p> OpenSpecimen is a highly Configurable Biospecimen Management System, which enables to track the Complete Lifecycle of your Biospecimen Inventory from Collection to Utilization. <br>user: admin </br>  <br> password: Login@123</br> </p>"
+	"instance_information": "<p> OpenSpecimen is a highly Configurable Biospecimen Management System, which enables to track the Complete Lifecycle of your Biospecimen Inventory from Collection to Utilization. <br>user: admin </br>  <br>password: Login@123</br> </p>"
 }
